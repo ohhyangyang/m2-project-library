@@ -16,6 +16,11 @@ const booksRouter = require("./routes/booksRouter");
 
 const app = express();
 
+const Book = require("./models/Book.model");
+const User = require("./models/User.model");
+
+
+
 // DB CONNECTION
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -52,6 +57,7 @@ app.use(
     }),
   })
 );
+
 
 // ROUTES
 app.use("/auth", authRouter);
