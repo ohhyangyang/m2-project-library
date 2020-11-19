@@ -11,6 +11,8 @@ const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
+const privateRouter = require("./routes/privateRouter");
+const booksRouter = require("./routes/booksRouter");
 
 const app = express();
 
@@ -53,6 +55,8 @@ app.use(
 
 // ROUTES
 app.use("/auth", authRouter);
+app.use("/books", booksRouter);
+app.use("/private", privateRouter);
 app.use("/", siteRouter);
 
 /* GET home page. */
