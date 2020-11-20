@@ -10,7 +10,7 @@ function Layout(props) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></link>
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
@@ -33,11 +33,11 @@ function Layout(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/auth/signup">
                 Signup
                 {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}
               </a>
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/auth/login">
                 Login
               </a>
               <a className="nav-link" href="#">
@@ -60,12 +60,12 @@ function Layout(props) {
         <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </body>
     </html>
