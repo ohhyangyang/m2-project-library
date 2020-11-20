@@ -1,4 +1,5 @@
 const React = require("react");
+const isLoggedIN = require("../utils/isLoggedIn");
 
 function Layout(props) {
   return (
@@ -18,7 +19,7 @@ function Layout(props) {
       <body>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
-            <img src=""/>
+            <img src="" />
           </a>
           <button
             className="navbar-toggler"
@@ -33,16 +34,20 @@ function Layout(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="/auth/signup">
-                Signup
-                {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}
-              </a>
-              <a className="nav-link" href="/auth/login">
-                Login
-              </a>
               <a className="nav-link" href="#">
                 Library
               </a>
+              <a className="nav-link" href="/auth/signup">
+                {/* {isLoggedIN ? "Profile" : "Signup"} */}
+                {/* {console.log("isLoggedIn",props.isLoggedIn)} */}
+                {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}
+                Sign up
+              </a>
+              <a className="nav-link" href="/auth/login">
+                {/* {isLoggedIN ? "Logout" : "Login"} */}
+                Log in 
+              </a>
+
               <a className="nav-link" href="#">
                 About
               </a>
@@ -53,8 +58,8 @@ function Layout(props) {
 
         <footer>
           <div className="footer-wrapper">
-          <img src=""/>
-          <a>About</a>
+            <img src="" />
+            <a>About</a>
           </div>
         </footer>
         <script

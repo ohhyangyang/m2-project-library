@@ -1,4 +1,5 @@
-function isLoggedIn (req, res, next) {
+
+  function isLoggedIn (req, res, next) {
     // If the request came with an authenticated cookie
     if (req.session.currentUser) {
       console.log('GOOD TO GO');
@@ -8,5 +9,6 @@ function isLoggedIn (req, res, next) {
       res.redirect('/auth/login')
     }
   }
+  
   module.exports = isLoggedIn;
   

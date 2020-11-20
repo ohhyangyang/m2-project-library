@@ -2,9 +2,10 @@ const React = require("react");
 const Layout = require("./Layout");
 const Card = require("./components/Card");
 
-function Home() {
+function Home(props) {
   return (
-    <Layout title="Home Page">
+    <Layout title="Home Page" >
+    {/* {console.log("Home Boolean",props.userIsLoggedIn)} */}
       <h1>Home Page</h1>
       <Card
         text="smaller component example"
