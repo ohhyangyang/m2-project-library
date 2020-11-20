@@ -58,16 +58,10 @@ app.use(
   })
 );
 
-
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/books", booksRouter);
 app.use("/private", privateRouter);
 app.use("/", siteRouter);
-
-/* GET home page. */
-app.get("/", (req, res, next) => {
-  res.render("Home");
-});
 
 module.exports = app;
