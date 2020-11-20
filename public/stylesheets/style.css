@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+
+
+
+/*-----------------FOOTER----------------------*/
+.footer-wrapper{
+  background-color: #9E8576;
+  width:100vw;
+  height: 500px;
 }

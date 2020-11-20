@@ -1,6 +1,8 @@
 var express = require("express");
 var siteRouter = express.Router();
 
-// Your routes
+siteRouter.get('/',(req,res,next)=>{
+    res.render("Home")
+})
 
-module.exports = siteRouter;
+module.exports = siteRouter; 

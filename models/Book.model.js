@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const User = require('./User.model')
+const User = require("./User.model");
 
 const bookSchema = new Schema(
   {
@@ -13,9 +13,37 @@ const bookSchema = new Schema(
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     borrower: { type: Schema.Types.ObjectId, ref: "User" },
     booksLikes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    category: {
+      type: String,
+      enum: [
+        "Fantasy",
+        "Adventure",
+        "Romance",
+        "Contemporary",
+        "Mystery",
+        "Horror",
+        "Thriller",
+        "Paranormal",
+        "Fiction",
+        "Science Fiction",
+        "Memoir",
+        "Cooking",
+        "Art",
+        "Self-help/Personal",
+        "Development",
+        "Motivational",
+        "Health",
+        "History",
+        "Travel",
+        "Guide/How-to",
+        "Families/Relationships",
+        "Humor",
+        "Children",
+      ],
+    },
     comments: [
       {
-        type: { type:String, maxLength: 100 },
+        comment: { type: String, maxLength: 100 },
         user: { type: Schema.Types.ObjectId, ref: "User" },
       },
     ],
