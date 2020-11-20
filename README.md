@@ -82,12 +82,12 @@ rating:{type:Number},
 imageURL:{type:String},
 status: {type:String, enum: "available", "pending","borrowed"},
 gift: {type: Boolean},
-owner: {type: Schema.Types.ObjectId,  ref: "User"}},
-borrower: {type: Schema.Types.ObjectId, ref: "User"}},
-booksLikes: [{type:Schema.Types.ObjectId, ref:"User"],
+owner: {{type: Schema.Types.ObjectId,  ref: "User"}},
+borrower: {{type: Schema.Types.ObjectId, ref: "User"}},
+booksLikes: [{type:Schema.Types.ObjectId, ref:"User"}],
 comments: [
 {
-type: {String, maxLength:100},
+comment: {type: String, maxLength:100},
 user: {type: Schema.Types.ObjectId, ref: "User"}
 }]
 }
