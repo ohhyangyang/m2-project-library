@@ -2,7 +2,10 @@ var express = require("express");
 var siteRouter = express.Router();
 
 siteRouter.get('/',(req,res,next)=>{
-    res.render("Home")
+    const userIsLoggedIn = Boolean(req.session.currentUser)
+    console.log(userIsLoggedIn)
+    const props = {userIsLoggedIn};
+    res.render("Home",props)
 })
 
 module.exports = siteRouter; 

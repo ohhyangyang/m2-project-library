@@ -50,7 +50,7 @@ edit user - user can change his/her profile and upload/remove/change books
 | `GET`  | `/books/library`          | Renders the view with the collection of books                |                                                       |
 | `GET`  | `/books/library/:bookid`  | If it's public route. When borrow button clicked, alert for signup. (action to library page with an alert message). If the user is authenticated, update the status of book to Borrowed (false). (action to library page) | books:{status}                                        |
 | `GET`  | `/books/library/:ownerid` | If it's public route. When visit owner button clicked, alert for signup. (redirect to library page with an alert message). If the user is authenticated, get the owner info of the book and redirect to the owner profile. (action to book owner profile) | users: {email, password, userinfo, [imageUrl]}        |
-|        |                           |                                                              |                                                       |
+| `GET`  | `/error`                  |                                                              |                                                       |
 |        |                           |                                                              |                                                       |
 |        |                           |                                                              |                                                       |
 

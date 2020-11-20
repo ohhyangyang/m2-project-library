@@ -4,7 +4,7 @@ const Card = require("./components/Card");
 
 function Home(props) {
   return (
-    <Layout title="Home Page" >
+    <Layout title="Home Page" isLoggedIn = {`${props.userIsLoggedIn}`}>
     {/* {console.log("Home Boolean",props.userIsLoggedIn)} */}
       <h1>Home Page</h1>
       <Card

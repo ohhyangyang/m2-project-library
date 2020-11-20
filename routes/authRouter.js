@@ -111,11 +111,11 @@ authRouter.post('/login', (req,res,next) => {
 authRouter.get('/logout',isLoggedIn, (req,res,next)=>{
     req.session.destroy((err)=>{
         if(err){
-            res.render('Error')
+            res.redirect('/error')
         }
         else{
             
-            res.render('/',props)
+            res.redirect('/')
         }
     })
 })
