@@ -3,7 +3,7 @@ const { update } = require("../models/Book.model");
 const Layout = require("./Layout");
 
 function UpdateProfile(props) {
-    return(<Layout>
+    return(<Layout title="Update Profile" isLoggedIn = {props.userIsLoggedIn}>
         <form action="/private/edit-profile" method="POST">
         <label>Username:</label>
         <input type="text" name="username" />

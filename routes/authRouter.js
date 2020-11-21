@@ -12,7 +12,7 @@ authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
 
-//POST //auth/singup
+//POST //auth/signup
 authRouter.post("/signup", (req, res, next) => {
   const { username, email, password, repeatPassword } = req.body;
 
@@ -98,6 +98,10 @@ authRouter.post('/login', (req,res,next) => {
     const passwordCorrect = bcrypt.compareSync(password, user.password);
     if(passwordCorrect){
         req.session.currentUser=user;
+        // Current user with details
+        console.log("req.session.currentUser", req.session.currentUser);
+        // Boolean --> logged in: TRUE
+        console.log("req.session.currentUser",Boolean(req.session.currentUser))
         res.redirect('/');
     }else{
         const props = { errorMessage: "Incorrect password" };

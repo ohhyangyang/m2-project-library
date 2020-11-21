@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function UpdateBook (props){
-    return(<Layout title="Update the Book">
+    return(<Layout title="Update the Book" isLoggedIn = {props.userIsLoggedIn}>
         <h1>Update Book</h1>
         <form action="/books/edit" method="POST">
         <label>Title:</label>

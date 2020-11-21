@@ -1,8 +1,8 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function About (){
-    return(<Layout title="About">
+function About (props){
+    return(<Layout title="About" isLoggedIn = {props.userIsLoggedIn}>
         <h2>About</h2>
     </Layout>)
 

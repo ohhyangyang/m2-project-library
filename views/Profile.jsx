@@ -1,8 +1,8 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function Profile () {
-    return (<Layout title="Profile">
+function Profile (props) {
+    return (<Layout title="Profile" isLoggedIn = {props.userIsLoggedIn}>
         <h1>Hi, username</h1>
         <div id="profileSection">
             <img id="profilePicture" src="/images/profile_avatar.png"></img>

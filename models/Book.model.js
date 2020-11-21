@@ -37,8 +37,8 @@ const bookSchema = new Schema(
         "Families/Relationships",
         "Humor",
         "Children",
-        "Comic"
-        
+        "Comic",
+        "Other" 
       ],
     },
     comments: [

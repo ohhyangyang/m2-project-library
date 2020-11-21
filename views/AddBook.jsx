@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function AddBook (props){
-    return(<Layout title="Add Book">
+    return(<Layout title="Add Book" isLoggedIn = {props.userIsLoggedIn}>
         <h1>Add a book</h1>
         <form action="/books/add" method="POST">
         <label>Title:</label>

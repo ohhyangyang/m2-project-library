@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function Library (props){
-    return(<Layout title="Library">
+    return(<Layout title="Library" isLoggedIn = {props.userIsLoggedIn}>
         <h2>Library</h2>
         <p>Check out different categories</p>
         <div class="horizontal-scroll">
@@ -41,14 +41,20 @@ function Library (props){
 
         <div> {props.books.map((Book) => {
             return (
-            <p className="book-title">
-                <a 
-                href={`/books/edit?bookid=${Book._id}`}
-                className="edit-button"
-                >
-                </a>
-                <a href={`/books/details/${Book._id}`} > {Book.title}</a>
-            </p>
+            <div className="book">
+            
+            
+                <img 
+                src={Book.imageURL}
+                className="image-cover"
+                />
+                <p>{Book.title}</p>
+                <p> {Book.author}</p>
+                <p>{Book.rating}</p>
+                <button>Borrow</button>
+                <p>Visit user's profile</p>
+           
+            </div>
             );
         })}</div>
     </div>
