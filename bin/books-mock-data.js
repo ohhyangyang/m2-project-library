@@ -113,7 +113,7 @@ const books = [
     rating: 4,
     imageURL:"https://wordery.com/jackets/4546debb/jamies-15-minute-meals-jamie-oliver-9780718157807.jpg",
     status: "borrowed",
-    gift:falseç,
+    gift:false,
     category:"Cooking",
     comments:[],
     
