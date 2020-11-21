@@ -7,13 +7,69 @@ a {
   color: #00B7FF;
 }
 
+/* Horizontal Scroll */
 
+.horizontal-scroll {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  /*margin-top: 0.5rem;
+  margin-bottom: 0.5rem;*/
+}
+
+.hs {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2px;
+
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hs>li,
+.item {
+  scroll-snap-align: center;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.hs>li {
+  background-color: var(--red-block);
+  min-height: 2rem;
+  min-width: 15rem;
+  color: black;
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+#firstCard {
+  background-color: #9E8576;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/*-----------------PROFILE PAGE----------------------*/
+
+#profilePicture {
+  height: 80px; 
+}
 
 
 
 /*-----------------FOOTER----------------------*/
-.footer-wrapper{
-  background-color: #9E8576;
-  width:100vw;
-  height: 500px;
-}
+

@@ -34,21 +34,19 @@ function Layout(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/books/library">
                 Library
               </a>
-              <a className="nav-link" href="/auth/signup">
-                {/* {isLoggedIN ? "Profile" : "Signup"} */}
+              <a className="nav-link" href={props.isLoggedIn ? "/private/profile" : "/auth/signup"}>
+                {props.isLoggedIn ? "Profile" : "Signup"}
                 {console.log("isLoggedIn",props.isLoggedIn)}
                 {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}
-                Sign up
               </a>
               <a className="nav-link" href="/auth/login">
-                {/* {isLoggedIN ? "Logout" : "Login"} */}
-                Log in 
+                {props.isLoggedIn ? "Logout" : "Login"}
               </a>
 
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/about">
                 About
               </a>
             </div>

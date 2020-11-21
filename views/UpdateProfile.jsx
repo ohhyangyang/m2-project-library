@@ -15,7 +15,7 @@ function UpdateProfile(props) {
         <input type="password" name="password" />
         <br />
         <button className="account-button" type="submit">
-          Change profile
+          UPDATE PROFILE
         </button>
         {props.errorMessage ? <div>{props.errorMessage}</div> : null}
       </form>

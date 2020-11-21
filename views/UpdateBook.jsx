@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function UpdateBook (props){
-    return(<Layout>
+    return(<Layout title="Update the Book">
         <h1>Update Book</h1>
         <form action="/books/edit" method="POST">
         <label>Title:</label>
@@ -12,7 +12,7 @@ function UpdateBook (props){
         <input type="text" name="author" />
         <br />
         <button className="account-button" type="submit">
-          Edit Book
+          UPDATE BOOK
         </button>
         {props.errorMessage ? <div>{props.errorMessage}</div> : null}
       </form>

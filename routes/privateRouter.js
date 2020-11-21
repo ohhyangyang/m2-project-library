@@ -4,6 +4,7 @@ var privateRouter = express.Router();
 // Your routes
 // GET /profile
 privateRouter.get("/profile", (req,res,next)=>{
+
     res.render("Profile")
 
 })

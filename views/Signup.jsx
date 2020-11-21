@@ -12,11 +12,10 @@ function Signup(props) {
         <input type="text" name="email" />
         <br />
         <label>Password:</label>
-        <input type="text" name="password" />
+        <input type="password" name="password" />
         <br />
         <label>Repeat password:</label>
-        <input type="text" name="repeatPassword" />
-
+        <input type="password" name="repeatPassword" />
         <br />
         <button className="account-button" type="submit">
           SIGN UP

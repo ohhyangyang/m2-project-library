@@ -114,7 +114,6 @@ authRouter.get('/logout',isLoggedIn, (req,res,next)=>{
             res.redirect('/error')
         }
         else{
-            
             res.redirect('/')
         }
     })
