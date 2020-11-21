@@ -89,7 +89,7 @@ const books = [
     rating: 4,
     imageURL:"https://image.ebooks.com/previews/001/001643/001643010/001643010.jpg",
     status: "borrowed",
-    gift:true,
+    gift:false,
     category:"Science Fiction",
     comments:[],
     
@@ -113,7 +113,7 @@ const books = [
     rating: 4,
     imageURL:"https://wordery.com/jackets/4546debb/jamies-15-minute-meals-jamie-oliver-9780718157807.jpg",
     status: "borrowed",
-    gift:true,
+    gift:falseç,
     category:"Cooking",
     comments:[],
     
