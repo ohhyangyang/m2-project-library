@@ -37,7 +37,7 @@ function Layout(props) {
               <a className="nav-link" href="#">
                 Library
               </a>
-              <a className="nav-link" href="/auth/signup">
+              <a className="nav-link" href={"/auth/signup"}>
                 {/* {isLoggedIN ? "Profile" : "Signup"} */}
                 {console.log("isLoggedIn",props.isLoggedIn)}
                 {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}

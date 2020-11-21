@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User.model");
+const Comment = require("./Comment.model");
 
 const bookSchema = new Schema(
   {
@@ -10,9 +11,6 @@ const bookSchema = new Schema(
     imageURL: { type: String },
     status: { type: String, enum: ["available", "pending", "borrowed"] },
     gift: { type: Boolean },
-    owner: { type: Schema.Types.ObjectId, ref: "User" },
-    borrower: { type: Schema.Types.ObjectId, ref: "User" },
-    booksLikes: [{ type: Schema.Types.ObjectId, ref: "User" }],
     category: {
       type: String,
       enum: [
@@ -39,14 +37,18 @@ const bookSchema = new Schema(
         "Families/Relationships",
         "Humor",
         "Children",
+        "Comic"
+        
       ],
     },
     comments: [
       {
-        comment: { type: String, maxLength: 100 },
-        user: { type: Schema.Types.ObjectId, ref: "User" },
+        comment: { type: Schema.Types.ObjectId, ref: "Comment" }
       },
     ],
+    owner: { type: Schema.Types.ObjectId, ref: "User" },
+    borrower: { type: Schema.Types.ObjectId, ref: "User" },
+    booksLikes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   {
     timestamps: {
