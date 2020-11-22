@@ -2,21 +2,50 @@ var express = require("express");
 const Book = require("../models/Book.model");
 const User = require("../models/User.model");
 var booksRouter = express.Router();
+const session = require("express-session");
 
 //GET /books/library
 booksRouter.get("/library", (req, res, next) => {
-  
+  const session = req.session.currentUser;
+  const userIsLoggedIn = Boolean(req.session.currentUser)
+  console.log("req.session.currentUser", req.session.currentUser)
+  console.log(userIsLoggedIn)
   Book.find()
   .then((allBooks)=> {
     console.log("allBooks", allBooks)
-    const props = {books: allBooks}; 
+    const props = {books: allBooks, userIsLoggedIn, session}; 
     console.log("props", props);
     res.render("Library", props);
   })
 });
 
-//GET    /books/library/:bookId
-booksRouter.get("/library/:bookId", (req, res, next) => {});
+//GET    /books/library/:bookId //BORROW
+booksRouter.get("/library/:bookid", (req, res, next) => {
+  // User logged in?
+  //const owner = req.params.owner 
+  //const {bookid} = req.query.bookid;
+  bookid = "5fb92e37c930e064cad5f702"
+  Book.findById(bookid)
+  .then((foundBook) => {
+    console.log("foundBook", foundBook)
+    if (foundBook.gift === true) {
+      Book.findOneAndUpdate({_id: bookid}, {$set: {status: "pending", borrower: req.session.currentUser._id}}, {new: true})
+      .then((updatedBook) =>{
+        console.log("updatedBook", updatedBook);
+        // BUTTON HAS TO CHANGE 
+        res.render("Library")
+      })
+    }
+    if (foundBook.gift === false) {
+    Book.findOneAndUpdate({_id: bookid}, {$set: {status: "pending", borrower: req.session.currentUser._id}}, {new: true})
+    .then((updatedBook) =>{
+      console.log("updatedBook", updatedBook);
+      // BUTTON HAS TO CHANGE 
+      res.render("Library")
+    })
+    }
+  })
+})
 
 // GET     /books/add
 booksRouter.get("/add", (req, res, next) => {
@@ -47,9 +76,11 @@ booksRouter.post("/add", (req, res, next) => {
 });
 
 // GET /books/library/:ownderID
-booksRouter.post("/library/:ownerid", (req, res, next) => {
-  const { ownerid } = req.query.ownerid;
-  User.findById(ownerid).then((ownerid) => {});
+booksRouter.get("/library/:username", (req, res, next) => {
+  const { username } = req.query.username;
+  User.findById(username).then((username) => {
+    res.redirect("/profile/username")
+  });
 });
 
 //DELETE /books/library/delete

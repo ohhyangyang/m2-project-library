@@ -73,7 +73,12 @@ authRouter.post("/signup", (req, res, next) => {
 
 //GET  /auth/login
 authRouter.get("/login", (req, res, next) => {
-  res.render("Login");
+  const session = req.session.currentUser;
+    const userIsLoggedIn = Boolean(req.session.currentUser)
+    console.log("req.session.currentUser", req.session.currentUser)
+    console.log(userIsLoggedIn)
+    const props = {session, userIsLoggedIn}
+  res.render("Login", props);
 });
 
 // POST /auth/login 
@@ -102,7 +107,7 @@ authRouter.post('/login', (req,res,next) => {
         console.log("req.session.currentUser", req.session.currentUser);
         // Boolean --> logged in: TRUE
         console.log("req.session.currentUser",Boolean(req.session.currentUser))
-        res.redirect('/');
+        res.redirect(`/private/profile/${req.session.currentUser.username}`);
     }else{
         const props = { errorMessage: "Incorrect password" };
         res.render("Login", props);
