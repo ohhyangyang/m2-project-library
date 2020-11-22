@@ -17,8 +17,9 @@ function Profile (props) {
         {}
         <div id="alert"><p>User wants to borrow this book</p><p>Do you want to lend this book?</p>
         </div>
-        <div id="booksSection">
-        <div>{props.booksOwnedbyTheUser.map((book,i) => {
+        <div id="requestSection">
+        
+        <div>{props.booksOwnedbyTheUser? (props.booksOwnedbyTheUser.map((book,i) => {
             return (<li key={i}>
                 <img 
                 src={book.imageURL}
@@ -35,8 +36,24 @@ function Profile (props) {
         </form>
             </li>
             );
-        })}</div>
+        }))
+        :null}</div>
+        <div id="userLibrary">
+        <p>Your library</p>
+        {props.userLibrary.map((book,i) => {
+            return (<li key={i}>
+                <img 
+                src={book.imageURL}
+                className="image-cover"
+                />
+            {book.title} {book.author}
+            </li>
+            );
+        })}
         </div>
+  
+        </div>
+
     </Layout>)
 }
 

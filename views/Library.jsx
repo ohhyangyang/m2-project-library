@@ -50,7 +50,7 @@ function Library (props){
                 <p> {Book.author}</p>
                 <p>{Book.rating}</p>
                 <a href={`/books/library/${Book._id}`}>Borrow</a>
-                <p>Visit user's profile</p>
+                <a href={`public/profile/$`}>Visit user's profile</a>
            
             </div>
             );

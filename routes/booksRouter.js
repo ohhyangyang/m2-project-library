@@ -22,7 +22,9 @@ booksRouter.get("/library", (req, res, next) => {
     if (book.owner._id != id )  {
     //console.log("bookowner", book.owner._id)
       userLibrary.push(book)
-    } 
+    } else {
+      
+    }
     })
   const props = {userLibrary: userLibrary};
   console.log("props", props)
