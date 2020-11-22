@@ -51,7 +51,7 @@ function Library (props){
                 <p>{Book.title}</p>
                 <p> {Book.author}</p>
                 <p>{Book.rating}</p>
-                <button>Borrow</button>
+                <a href={`/books/library/${Book._id}`}>Borrow</a>
                 <p>Visit user's profile</p>
            
             </div>

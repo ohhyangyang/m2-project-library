@@ -25,6 +25,14 @@ function Profile (props) {
                 className="image-cover"
                 />
             {book.title} {book.author}
+        <label>Do I want to lend this book:</label>
+        <form action={`/private/profile/${props.session.username}/${book._id}`} method="POST">
+        <input type="radio" id="yes" name="statusBorrowed" value="yes" />
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="statusBorrowed" value="no" />
+        <label for="no">No</label>
+        <button className="account-button" type="submit">Submit</button>
+        </form>
             </li>
             );
         })}</div>

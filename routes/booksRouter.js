@@ -23,8 +23,7 @@ booksRouter.get("/library", (req, res, next) => {
 booksRouter.get("/library/:bookid", (req, res, next) => {
   // User logged in?
   //const owner = req.params.owner 
-  //const {bookid} = req.query.bookid;
-  bookid = "5fb92e37c930e064cad5f702"
+  const {bookid} = req.params;
   Book.findById(bookid)
   .then((foundBook) => {
     console.log("foundBook", foundBook)
@@ -33,7 +32,7 @@ booksRouter.get("/library/:bookid", (req, res, next) => {
       .then((updatedBook) =>{
         console.log("updatedBook", updatedBook);
         // BUTTON HAS TO CHANGE 
-        res.render("Library")
+        res.redirect("/books/library")
       })
     }
     if (foundBook.gift === false) {
