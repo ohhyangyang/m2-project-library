@@ -39,11 +39,9 @@ function Library (props){
             </li>
         </ul>
 
-        <div> {props.books.map((Book) => {
+        <div> {props.userLibrary.map((Book) => {
             return (
             <div className="book">
-            
-            
                 <img 
                 src={Book.imageURL}
                 className="image-cover"

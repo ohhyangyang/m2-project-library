@@ -9,14 +9,26 @@ booksRouter.get("/library", (req, res, next) => {
   const session = req.session.currentUser;
   const userIsLoggedIn = Boolean(req.session.currentUser)
   console.log("req.session.currentUser", req.session.currentUser)
-  console.log(userIsLoggedIn)
+  const id = req.session.currentUser._id;
+  //console.log("id", id)
+  //console.log(userIsLoggedIn)
   Book.find()
-  .then((allBooks)=> {
-    console.log("allBooks", allBooks)
-    const props = {books: allBooks, userIsLoggedIn, session}; 
-    console.log("props", props);
-    res.render("Library", props);
+  .populate("owner")
+  .then((findBooks)=>{
+    //console.log("findbooks",findBooks)
+    let userLibrary = [];
+    findBooks.forEach((book, i) =>{
+    console.log("book.owner_id",book.owner._id); 
+    if (book.owner._id != id )  {
+    //console.log("bookowner", book.owner._id)
+      userLibrary.push(book)
+    } 
+    })
+  const props = {userLibrary: userLibrary};
+  console.log("props", props)
+  res.render("Library", props)
   })
+
 });
 
 //GET    /books/library/:bookId //BORROW
