@@ -19,7 +19,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
   //if username matches the user being logged in
   if (session.username === req.params.username) {
-    
+    // Request for books to be borrowed
     Book.find({ status: "pending" })
       .populate("owner")
       .then((pendingBooks) => {
@@ -29,6 +29,13 @@ privateRouter.get("/profile/:username", (req, res, next) => {
             booksOwnedByTheUser.push(book);
           }
         });
+      // Response from requests you have sent
+        User.findById(session._id)
+        .then((x)=>{
+          console.log("x.message", x.message)
+        })
+
+      // Your library 
         Book.find({ status: "available" })
           .populate("owner")
           .then((availableBooks) => {
@@ -124,19 +131,13 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
           res.redirect(`/private/profile/${username}`);
           console.log("updated Book", updatedBook);
           // update message box with the info displaying in the borrower profile
-          //console.log("updatedBook", updatedBook.borrower); 
           const borrowerId = updatedBook.borrower
-          User.findByIdAndUpdate(borrowerId, 
-            {$set:{
-              message:{
-                content:`${username} has approved the request, Email: ${email}`,
-                status:"unseen"
-              }
-            }}, {new:true})
-            //$set:{{message: {content: `${username} has approved the request`},status:"unseen"}}}
-          .then((x)=>{
-            console.log(x)
+          User.findByIdAndUpdate({_id: borrowerId},{$push: {message: {content:`${username} has approved the request, Email: ${email}`, status: "unseen", bookId: updatedBook._id}}}, {new:true})
+          .then((x) =>{
+            console.log("It worked")
           })
+
+// db.people.update({name: "John"}, {$push: {friends: {firstName: "Harry", lastName: "Potter"}}});
 
         })
         
