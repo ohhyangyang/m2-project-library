@@ -1,8 +1,9 @@
+const { PromiseProvider } = require("mongoose");
 const React = require("react");
 const Layout = require("./Layout");
 
 function Profile (props) {
-    return (<Layout title="Profile">
+    return (<Layout title="Profile" isLoggedIn = {props.userIsLoggedIn} >
         <h1>Hi, username</h1>
         <div id="profileSection">
             <img id="profilePicture" src="/images/default_user_image.png"></img>

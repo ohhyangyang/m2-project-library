@@ -4,8 +4,8 @@ const Card = require("./components/Card");
 
 function Home(props) {
   return (
-    <Layout title="Home Page" isLoggedIn = {props.userIsLoggedIn} 
-    user = {props.session.username}>
+    <Layout title="Home Page" isLoggedIn = {props.userIsLoggedIn}
+    username = {props.session.username}>
     {/* {console.log("Home Boolean",props.userIsLoggedIn)} */}
       <div id="header-section"><h1>Books</h1>
       <p>Discover books</p>
