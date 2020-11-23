@@ -16,7 +16,8 @@ siteRouter.get("/about", (req, res, next) => {
     const session = req.session.currentUser;
     console.log("session", session);
     const userIsLoggedIn = Boolean(req.session.currentUser)
-    const props = {userIsLoggedIn,session}
+    const props = {userIsLoggedIn,session,username:session.username}
+    console.log("props", props)
     res.render("About", props);
   });
 

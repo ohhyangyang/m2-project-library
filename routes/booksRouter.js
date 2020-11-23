@@ -3,7 +3,7 @@ const Book = require("../models/Book.model");
 const User = require("../models/User.model");
 var booksRouter = express.Router();
 const session = require("express-session");
-const parser = require('./../config/cloudinary');
+const parser = require('./../config/cloudinary'); 
 
 
 //GET /books/library
@@ -27,8 +27,8 @@ booksRouter.get("/library", (req, res, next) => {
     } else { 
     }
     })
-  const props = {userLibrary: userLibrary, userIsLoggedIn};
-  console.log("props", props)
+  const props = {userLibrary: userLibrary, userIsLoggedIn, username:session.username};
+  // console.log("props", props)
   res.render("Library", props)
   })
 

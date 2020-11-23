@@ -8,7 +8,7 @@ const users = require("./users-mock-data");
 const DB_NAME = "booklibrary";
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(`mongodb://localhost:27017/${DB_NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
