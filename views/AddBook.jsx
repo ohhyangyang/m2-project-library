@@ -4,12 +4,15 @@ const Layout = require("./Layout");
 function AddBook (props){
     return(<Layout title="Add Book" isLoggedIn = {props.userIsLoggedIn}>
         <h1>Add a book</h1>
-        <form action="/books/add" method="POST">
+        <form action="/books/add" method="POST" encType="multipart/form-data">
         <label>Title:</label>
         <input type="text" name="title" />
         <br />
         <label>Author:</label>
         <input type="text" name="author" />
+        <br />
+        <label>Rating:</label>
+        <input type="number" name="rating" />
         <br />
         <label>Category:</label>
         <select name="category" id="categories">
@@ -39,6 +42,9 @@ function AddBook (props){
         <option value="Comics">Comic</option>
         <option value="Other">Other</option>
         </select>
+        <br />
+        <label>Cover image</label>
+        <input type='file' name='bookcoverimage'/>
         <br />
         <label>Gift:</label>
         <input type="radio" id="yes" name="gift" value="yes" />

@@ -3,6 +3,8 @@ const Book = require("../models/Book.model");
 const User = require("../models/User.model");
 var booksRouter = express.Router();
 const session = require("express-session");
+const parser = require('./../config/cloudinary');
+
 
 //GET /books/library
 booksRouter.get("/library", (req, res, next) => {
@@ -18,7 +20,7 @@ booksRouter.get("/library", (req, res, next) => {
     //console.log("findbooks",findBooks)
     let userLibrary = [];
     findBooks.forEach((book, i) =>{
-    console.log("book.owner_id",book.owner._id); 
+    //console.log("book.owner_id",book.owner._id); 
     if (book.owner._id != id )  {
     //console.log("bookowner", book.owner._id)
       userLibrary.push(book)
@@ -66,19 +68,20 @@ booksRouter.get("/add", (req, res, next) => {
 });
 
 // POST    /books/add
-booksRouter.post("/add", (req, res, next) => {
-  const { title, author, category, gift } = req.body;
+booksRouter.post("/add", parser.single('bookcoverimage'), (req, res, next) => {
+  const { title, author, category, rating, gift } = req.body;
   console.log("req.body", req.body);
+  const imageUrl = req.file.secure_url;
   // EX: title: 1984, author: George Orwell, category: fiction, gift: yes
   // If any fields are empty, display error message
-  if (title === "" || author === "" || category === "" || gift === "") {
+  if (title === "" || author === "" || category === "" || rating === "" || gift === "") {
     const props = { errorMessage: "Please enter all the information" };
     console.log("props", props);
     res.render("AddBook", props);
     return;
   }
   // if input is given, create the book
-  Book.create({ title: title, author: author, category: category, gift: gift })
+  Book.create({ title: title, author: author, category: category, rating: rating, gift: gift, imageURL: imageUrl, status: "available", owner: req.session.currentUser._id })
     .then((createdBook) => {
       console.log("createdBooK", createdBook);
       res.redirect("/");
@@ -108,25 +111,40 @@ booksRouter.delete("/delete", (req, res, next) => {
     });
 });
 
-//EDIT /books/library/edit
+//EDIT /books/edit
 booksRouter.get("/edit", (req, res, next) => {
-  res.render("UpdateBook");
+  const {bookid} = req.query  
+  console.log("bookid", bookid)
+
+  Book.findOne({_id:bookid})
+  .populate("owner")
+  .then((oneBook)=>{
+  console.log("oneBook",oneBook)
+    const props = { oneBook: oneBook };
+    console.log("props", props)
+    res.render("UpdateBook", props);
+  })
+
 });
 
-//POST /books/library/edit
+//POST /books/edit
 booksRouter.post("/edit", (req, res, next) => {
+  // get the book id from the query
+
   const { bookid } = req.query;
-  const { title, author, category, gift } = req.body;
+  console.log("req.query", req.query)
+  const { title, author, rating, category } = req.body;
   Book.findByIdAndUpdate(
     bookid,
-    { title, author, category, gift },
+    { title, author, rating, category },
     { new: true }
   )
     .then((updatedBook) => {
-      console.log("Updated Book", updatedBook), res.redirect("/library");
+      console.log("Updated Book", updatedBook) 
+      res.redirect("/books/library");
     })
     .catch((error) => {
-      console.log("error", err);
+      console.log("error", error);
     });
 });
 
