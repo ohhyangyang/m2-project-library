@@ -11,6 +11,8 @@ const parser = require('./../config/cloudinary');
 privateRouter.get("/profile/:username", (req, res, next) => {
   // EXAMPLE /profile/david
   const session = req.session.currentUser;
+  console.log("session", session)
+
   const userIsLoggedIn = Boolean(req.session.currentUser);
   //console.log("userIsLoggedIn", userIsLoggedIn);
   //console.log("session", session);
@@ -63,9 +65,10 @@ privateRouter.get("/profile/:username", (req, res, next) => {
               userIsLoggedIn,
               session,
               messagesUnseen: messagesUnseen,
-              user: req.params.username
+              user: req.params.username, 
             };
-            //console.log("props",props)
+
+            console.log("props",props)
             res.render("Profile", props);
           });
         })

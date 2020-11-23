@@ -3,11 +3,12 @@ var siteRouter = express.Router();
 
 siteRouter.get('/',(req,res,next)=>{
     const session = req.session.currentUser;
+    console.log("session.username",session.username)
     console.log("session", session)
     const userIsLoggedIn = Boolean(req.session.currentUser)
     console.log(userIsLoggedIn)
     const props = {userIsLoggedIn, session};
-    console.log("prop",props);
+    console.log("props",props);
     res.render("Home",props)
 })
 
