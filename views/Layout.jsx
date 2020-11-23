@@ -42,7 +42,7 @@ function Layout(props) {
                 {console.log("isLoggedIn",props.isLoggedIn)}
                 {/* <span className="sr-only">(current)</span>   active to make <a> link bolder*/}
               </a>
-              <a className="nav-link" href="/auth/login">
+              <a className="nav-link" href={props.isLoggedIn ? "/auth/logout" : "/auth/login"}>
                 {props.isLoggedIn ? "Logout" : "Login"}
               </a>
 

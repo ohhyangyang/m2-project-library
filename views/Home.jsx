@@ -18,6 +18,7 @@ function Home(props) {
         text="second example of component use"
         image="https://i.imgur.com/dHdzhWn.png"
       />*/}
+      
     </Layout>
   );
 }

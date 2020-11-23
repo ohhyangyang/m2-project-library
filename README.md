@@ -32,27 +32,27 @@ edit user - user can change his/her profile and upload/remove/change books
 
 ## Server Routes (Back-end)
 
-| Method | Route                     | Description                                                  | Request-Body                                          |
-| ------ | ------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| `GET`  | `/`                       | Main page route. Renders the homepage                        |                                                       |
-| `GET`  | `/auth/login`             | Renders the login form view                                  |                                                       |
-| `GET`  | `/auth/signup`            | Renders the signup form view                                 |                                                       |
-| `POST` | `/auth/login`             | Sends the login form data to the server (action to homepage) | users: {username, password}                           |
-| `POST` | `/auth/signup`            | Sends the sign up form information to the server (action to homepage) | users:{username, password}                            |
-| `GET`  | `/private/profile`        | Private route. if cookie ID received, render the profile page with the user info and add edit buttons. If an owner ID received, render the profile page with the book owner info. |                                                       |
-| `GET`  | `/private/edit-profile`   | Private route. Renders the edit-profile form                 |                                                       |
-| `POST` | `/private/edit-profile`   | Private route. Sends the changes for the profile to the the server and updates the DB (action to user profile) | users: {email, password, userinfo, [imageUrl]}        |
-| `GET`  | `/auth/logout`            | Private route. Redirect to the home page                     |                                                       |
-|        |                           |                                                              |                                                       |
-| `GET`  | `/private/add-book`       | Private route. Renders the add-book form                     |                                                       |
-| `POST` | `/private/add-book`       | Private route. Adds info of a new book to the database (redirect to user profile) | users: {name, authors, description, borrowed, userID} |
-|        |                           | EDIT & DELETE BOOK?                                          |                                                       |
-| `GET`  | `/books/library`          | Renders the view with the collection of books                |                                                       |
-| `GET`  | `/books/library/:bookid`  | If it's public route. When borrow button clicked, alert for signup. (action to library page with an alert message). If the user is authenticated, update the status of book to Borrowed (false). (action to library page) | books:{status}                                        |
-| `GET`  | `/books/library/:ownerid` | If it's public route. When visit owner button clicked, alert for signup. (redirect to library page with an alert message). If the user is authenticated, get the owner info of the book and redirect to the owner profile. (action to book owner profile) | users: {email, password, userinfo, [imageUrl]}        |
-| `GET`  | `/error`                  |                                                              |                                                       |
-|        |                           |                                                              |                                                       |
-|        |                           |                                                              |                                                       |
+| Method | Route                       | Description                                                  | Request-Body                                          |
+| ------ | --------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| `GET`  | `/`                         | Main page route. Renders the homepage                        |                                                       |
+| `GET`  | `/auth/login`               | Renders the login form view                                  |                                                       |
+| `GET`  | `/auth/signup`              | Renders the signup form view                                 |                                                       |
+| `POST` | `/auth/login`               | Sends the login form data to the server (action to homepage) | users: {username, password}                           |
+| `POST` | `/auth/signup`              | Sends the sign up form information to the server (action to homepage) | users:{username, password}                            |
+| `GET`  | `/private/profile`          | Private route. if cookie ID received, render the profile page with the user info and add edit buttons. If an owner ID received, render the profile page with the book owner info. | X                                                     |
+| `GET`  | `/private/edit-profile`     | Private route. Renders the edit-profile form                 |                                                       |
+| `POST` | `/private/edit-profile`     | Private route. Sends the changes for the profile to the the server and updates the DB (action to user profile) | users: {email, password, userinfo, [imageUrl]}        |
+| `GET`  | `/auth/logout`              | Private route. Redirect to the home page                     |                                                       |
+|        |                             |                                                              |                                                       |
+| `GET`  | `/private/add-book`         | Private route. Renders the add-book form                     |                                                       |
+| `POST` | `/private/add-book`         | Private route. Adds info of a new book to the database (redirect to user profile) | users: {name, authors, description, borrowed, userID} |
+|        |                             | EDIT & DELETE BOOK?                                          |                                                       |
+| `GET`  | `/books/library`            | Renders the view with the collection of books                |                                                       |
+| `GET`  | `/books/library/:bookid`    | If it's public route. When borrow button clicked, alert for signup. (action to library page with an alert message). If the user is authenticated, update the status of book to Borrowed (false). (action to library page) | books:{status}                                        |
+| `GET`  | `/private/profile/:ownerid` | If it's public route. When visit owner button clicked, alert for signup. (redirect to library page with an alert message). If the user is authenticated, get the owner info of the book and redirect to the owner profile. (action to book owner profile) | users: {email, password, userinfo, [imageUrl]}        |
+| `GET`  | `/error`                    |                                                              |                                                       |
+|        |                             |                                                              |                                                       |
+|        |                             |                                                              |                                                       |
 
 
 
