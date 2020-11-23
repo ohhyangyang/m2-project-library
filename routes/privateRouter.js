@@ -19,6 +19,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
   //if username matches the user being logged in
   if (session.username === req.params.username) {
+    
     Book.find({ status: "pending" })
       .populate("owner")
       .then((pendingBooks) => {
@@ -74,6 +75,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
 privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
   const session = req.session.currentUser;
+  const email = req.session.currentUser.email;
   const userIsLoggedIn = Boolean(req.session.currentUser);
   //console.log("session", session)
   //console.log("req.username",req.session.currentUser.username )
@@ -117,10 +119,28 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
           bookid,
           { status: "borrowed" },
           { new: true }
-        ).then((updatedBook) => {
+        )
+        .then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
           console.log("updated Book", updatedBook);
-        });
+          // update message box with the info displaying in the borrower profile
+          //console.log("updatedBook", updatedBook.borrower); 
+          const borrowerId = updatedBook.borrower
+          User.findByIdAndUpdate(borrowerId, 
+            {$set:{
+              message:{
+                content:`${username} has approved the request, Email: ${email}`,
+                status:"unseen"
+              }
+            }}, {new:true})
+            //$set:{{message: {content: `${username} has approved the request`},status:"unseen"}}}
+          .then((x)=>{
+            console.log(x)
+          })
+
+        })
+        
+
       }
       // It's not a gift and the user says no
       else if (foundBook.gift === false && statusBorrowed === "no") {
