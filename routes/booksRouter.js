@@ -27,7 +27,7 @@ booksRouter.get("/library", (req, res, next) => {
     } else { 
     }
     })
-  const props = {userLibrary: userLibrary};
+  const props = {userLibrary: userLibrary, userIsLoggedIn};
   console.log("props", props)
   res.render("Library", props)
   })
