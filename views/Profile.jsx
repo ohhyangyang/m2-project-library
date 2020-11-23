@@ -5,7 +5,7 @@ function Profile (props) {
     return (<Layout title="Profile">
         <h1>Hi, username</h1>
         <div id="profileSection">
-            <img id="profilePicture" src="/images/profile_avatar.png"></img>
+            <img id="profilePicture" src="/images/default_user_image.png"></img>
             <p>number</p>
             <p>number</p>
             <p>likes</p>

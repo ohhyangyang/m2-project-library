@@ -4,15 +4,15 @@ const Layout = require("./Layout");
 
 function UpdateProfile(props) {
     return(<Layout title="Update Profile" isLoggedIn = {props.userIsLoggedIn}>
-        <form action="/private/edit-profile" method="POST">
+        <form action="/private/edit-profile" method="POST" encType="multipart/form-data">
         <label>Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" defaultValue={props.foundUser.username} />
         <br />
         <label>Description:</label>
-        <input type="text" name="description" />
+        <input type="text" name="description" defaultValue={props.foundUser.description} />
         <br />
-        <label>Password:</label>
-        <input type="password" name="password" />
+        <label>Image:</label>
+        <input type="file" name="userimage" />
         <br />
         <button className="account-button" type="submit">
           UPDATE PROFILE

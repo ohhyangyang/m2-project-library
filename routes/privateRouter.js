@@ -1,7 +1,10 @@
 var express = require("express");
 const books = require("../bin/books-mock-data");
 const Book = require("../models/Book.model");
+const User = require("../models/User.model");
 var privateRouter = express.Router();
+const parser = require('./../config/cloudinary');
+
 
 // Your routes
 // GET /profile
@@ -137,9 +140,28 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
 privateRouter.get("/edit-profile", (req, res, next) => {
   const userIsLoggedIn = Boolean(req.session.currentUser);
   const props = { userIsLoggedIn };
-  res.render("UpdateProfile", props);
+
+  const {username} = req.session.currentUser;
+  
+  User.findOne({username: username})
+  .then((foundUser) =>{
+   console.log("foundUser", foundUser) 
+   const props = {foundUser : foundUser}
+   res.render("UpdateProfile", props);
+  })
 });
 
-privateRouter.post("/edit-profile", (req, res, next) => {});
+privateRouter.post("/edit-profile", parser.single('userimage'), (req, res, next) => {
+  const {username, description, imageURL} = req.body; 
+  const imageUrl = req.file.secure_url;
+  const userId = req.session.currentUser._id
+
+  User.findByIdAndUpdate( userId, {username, description, imageURL: imageUrl},{new:true})
+  .then((updatedUser) =>{
+    console.log("updatedUser", updatedUser); 
+    res.redirect(`/private/profile/${username}`)
+  })
+
+});
 
 module.exports = privateRouter;
