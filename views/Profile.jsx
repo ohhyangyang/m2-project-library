@@ -21,8 +21,8 @@ function Profile (props) {
             (props.messagesUnseen.map((message,i) => {
             return (<li key={i}>
                 
-            {message}
-            <a href="/private/profile">I got it</a>
+            {message.content}
+            <a href={`/private/profile/message/${message._id}/${i}`}>I got it</a>
             </li>
             );
         }))
