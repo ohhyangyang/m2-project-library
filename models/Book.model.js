@@ -7,7 +7,7 @@ const bookSchema = new Schema(
   {
     title: { type: String, required: true },
     author: { type: String, required: true },
-    rating: { type: Number },
+    rating: { type: Number, max:5 },
     imageURL: { type: String },
     status: { type: String, enum: ["available", "pending", "borrowed"] },
     gift: { type: Boolean },

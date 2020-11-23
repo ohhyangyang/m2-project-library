@@ -39,11 +39,9 @@ function Library (props){
             </li>
         </ul>
 
-        <div> {props.books.map((Book) => {
+        <div> {props.userLibrary.map((Book) => {
             return (
             <div className="book">
-            
-            
                 <img 
                 src={Book.imageURL}
                 className="image-cover"
@@ -51,9 +49,8 @@ function Library (props){
                 <p>{Book.title}</p>
                 <p> {Book.author}</p>
                 <p>{Book.rating}</p>
-                <button>Borrow</button>
-                <p>Visit user's profile</p>
-           
+                <a href={`/books/library/${Book._id}`}>Borrow</a>
+                <a href={`/private/profile/${Book.owner.username}`}>Visit user's profile</a>
             </div>
             );
         })}</div>
