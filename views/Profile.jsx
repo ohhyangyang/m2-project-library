@@ -22,7 +22,7 @@ function Profile (props) {
             return (<li key={i}>
                 
             {message}
-
+            <a href="/private/profile">I got it</a>
             </li>
             );
         }))

@@ -179,6 +179,12 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
     });
 });
 
+//GET ROUTE - approving the confirmation
+
+privateRouter.get("")
+
+
+
 // GET /
 privateRouter.get("/edit-profile", (req, res, next) => {
   const userIsLoggedIn = Boolean(req.session.currentUser);
