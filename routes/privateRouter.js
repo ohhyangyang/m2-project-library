@@ -19,6 +19,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
   //if username matches the user being logged in
   if (session.username === req.params.username) {
+    // /juliane === /david 
     // Request for books to be borrowed
     Book.find({ status: "pending" })
       .populate("owner")
@@ -61,7 +62,8 @@ privateRouter.get("/profile/:username", (req, res, next) => {
               userLibrary: userLibrary,
               userIsLoggedIn,
               session,
-              messagesUnseen: messagesUnseen
+              messagesUnseen: messagesUnseen,
+              user: req.params.username
             };
             //console.log("props",props)
             res.render("Profile", props);
@@ -75,12 +77,14 @@ privateRouter.get("/profile/:username", (req, res, next) => {
       });
       
   } else {
+    //juliane === /david 
     Book.find({ status: "available" })
     .populate("owner")
     .then((availableBooks) =>{
     let userLibrary = [];
     availableBooks.forEach((book,i) =>{
-        if (book.owner.username === username) {
+       console.log("availableBooks", availableBooks)
+        if (book.owner.username == req.params.username) {
             userLibrary.push(book);
           } 
     });
@@ -88,6 +92,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
         userLibrary: userLibrary,
         userIsLoggedIn,
         session,
+        user: req.params.username
       };
       //console.log("props",props)
       res.render("Profile", props);
@@ -148,7 +153,7 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
           console.log("updated Book", updatedBook);
           // update message box with the info displaying in the borrower profile
           const borrowerId = updatedBook.borrower
-          User.findByIdAndUpdate({_id: borrowerId},{$push: {message: {content:`${username} has approved the request, Email: ${email}`, status: "unseen", bookId: updatedBook._id}}}, {new:true})
+          User.findByIdAndUpdate({_id: borrowerId},{$push: {message: {content:`${username} has approved the request for ${updatedBook.title}, Email: ${email}`, status: "unseen", bookId: updatedBook._id}}}, {new:true})
           .then((x) =>{
             console.log("It worked")
           })

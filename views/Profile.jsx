@@ -17,14 +17,16 @@ function Profile (props) {
         <div id="confirmationSection"> 
         <div id="messagesUnseen">
         <p>The following books have been approved for borrowing</p>
-            {props.messagesUnseen.map((message,i) => {
+            {props.messagesUnseen?
+            (props.messagesUnseen.map((message,i) => {
             return (<li key={i}>
                 
             {message}
 
             </li>
             );
-        })}
+        }))
+        :null}
         </div>
         </div>
 
