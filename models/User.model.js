@@ -10,7 +10,7 @@ const userSchema = new Schema({
     description: {type: String, maxLength: 280},
     booksLiked: [{type:Schema.Types.ObjectId, ref:"Book"}],
     booksOffered:  [{type:Schema.Types.ObjectId, ref:"Book"}],
-    booksBorrowed: [{type:Schema.Types.ObjectId, ref:"Book"}]
+    message: {content: String, status: {type: String, enum: ["unseen", "seen"]}}
 },
 {
     timestamps:{

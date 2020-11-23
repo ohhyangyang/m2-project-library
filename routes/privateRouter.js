@@ -92,6 +92,8 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
       if (foundBook.gift === true && statusBorrowed === "yes") {
         console.log("This book should be deleted");
         Book.deleteOne({ _id: bookid }).then((deletedBook) => {
+          // borrower --> owner 
+          // borrower = owner 
           res.redirect(`/private/profile/${username}`);
           console.log("The deleted item", deletedBook);
         });
@@ -111,7 +113,6 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
       // It's not a gift and the user says yes
       else if (foundBook.gift === false && statusBorrowed === "yes") {
         console.log("I am going to lend this book to someone else");
-        // add it to the array booksBorrowed
         Book.findByIdAndUpdate(
           bookid,
           { status: "borrowed" },
