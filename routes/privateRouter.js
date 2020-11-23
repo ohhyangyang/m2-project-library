@@ -29,13 +29,21 @@ privateRouter.get("/profile/:username", (req, res, next) => {
             booksOwnedByTheUser.push(book);
           }
         });
+
+
       // Response from requests you have sent
         User.findById(session._id)
-        .then((x)=>{
-          console.log("x.message", x.message)
+        .then((foundUser)=> {
+        const messages = foundUser.message
+        let messagesUnseen = [];
+        messages.forEach((message, i) => {
+          if(message && message.status === "unseen") {
+          console.log("message", message)
+          messagesUnseen.push(message.content);
+          }
         })
 
-      // Your library 
+        // Your library 
         Book.find({ status: "available" })
           .populate("owner")
           .then((availableBooks) => {
@@ -45,16 +53,24 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                 userLibrary.push(book);
               }
             });
+
+            
             // return the array of books that are pending and waiting for davids approval
             const props = {
               booksOwnedbyTheUser: booksOwnedByTheUser,
               userLibrary: userLibrary,
               userIsLoggedIn,
               session,
+              messagesUnseen: messagesUnseen
             };
             //console.log("props",props)
             res.render("Profile", props);
           });
+        })
+
+
+
+      
         
       });
       

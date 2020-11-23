@@ -14,9 +14,20 @@ function Profile (props) {
             <p>username</p>
             <p>description</p>
         </div>
-        <div id="confirmationSection">
-        <p>The following books have been approved for borrowing</p>   
+        <div id="confirmationSection"> 
+        <div id="messagesUnseen">
+        <p>The following books have been approved for borrowing</p>
+            {props.messagesUnseen.map((message,i) => {
+            return (<li key={i}>
+                
+            {message}
+
+            </li>
+            );
+        })}
         </div>
+        </div>
+
         <div id="alert"><p>User wants to borrow this book</p><p>Do you want to lend this book?</p>
         </div>
         <div id="requestSection">
