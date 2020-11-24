@@ -32,27 +32,27 @@ edit user - user can change his/her profile and upload/remove/change books
 
 ## Server Routes (Back-end)
 
-| Method | Route                       | Description                                                  | Request-Body                                          |
-| ------ | --------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| `GET`  | `/`                         | Main page route. Renders the homepage                        |                                                       |
-| `GET`  | `/auth/login`               | Renders the login form view                                  |                                                       |
-| `GET`  | `/auth/signup`              | Renders the signup form view                                 |                                                       |
-| `POST` | `/auth/login`               | Sends the login form data to the server (action to homepage) | users: {username, password}                           |
-| `POST` | `/auth/signup`              | Sends the sign up form information to the server (action to homepage) | users:{username, password}                            |
-| `GET`  | `/private/profile`          | Private route. if cookie ID received, render the profile page with the user info and add edit buttons. If an owner ID received, render the profile page with the book owner info. | X                                                     |
-| `GET`  | `/private/edit-profile`     | Private route. Renders the edit-profile form                 |                                                       |
-| `POST` | `/private/edit-profile`     | Private route. Sends the changes for the profile to the the server and updates the DB (action to user profile) | users: {email, password, userinfo, [imageUrl]}        |
-| `GET`  | `/auth/logout`              | Private route. Redirect to the home page                     |                                                       |
-|        |                             |                                                              |                                                       |
-| `GET`  | `/private/add-book`         | Private route. Renders the add-book form                     |                                                       |
-| `POST` | `/private/add-book`         | Private route. Adds info of a new book to the database (redirect to user profile) | users: {name, authors, description, borrowed, userID} |
-|        |                             | EDIT & DELETE BOOK?                                          |                                                       |
-| `GET`  | `/books/library`            | Renders the view with the collection of books                |                                                       |
-| `GET`  | `/books/library/:bookid`    | If it's public route. When borrow button clicked, alert for signup. (action to library page with an alert message). If the user is authenticated, update the status of book to Borrowed (false). (action to library page) | books:{status}                                        |
-| `GET`  | `/private/profile/:ownerid` | If it's public route. When visit owner button clicked, alert for signup. (redirect to library page with an alert message). If the user is authenticated, get the owner info of the book and redirect to the owner profile. (action to book owner profile) | users: {email, password, userinfo, [imageUrl]}        |
-| `GET`  | `/error`                    |                                                              |                                                       |
-|        |                             |                                                              |                                                       |
-|        |                             |                                                              |                                                       |
+| Method   | Route                                               | Description                                                  | Request-Body                                |
+| -------- | --------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| `GET`    | `/`                                                 | Main page route. Renders the `Home` page                     |                                             |
+| `GET`    | `/about`                                            | Renders the `About` page                                     |                                             |
+| `GET`    | `/error`                                            | Renders the `Error` page                                     |                                             |
+| `GET`    | `/auth/login`                                       | Renders the `Login` page                                     |                                             |
+| `POST`   | `/auth/login`                                       | Sends the login form information to the server               | users:{username, password}                  |
+| `GET`    | `/auth/signup`                                      | Renders the `Signup` page                                    |                                             |
+| `POST`   | `/auth/signup`                                      | Sends the signup form information to the server              | users:{username, password, email}           |
+| `GET`    | `/auth/logout`                                      | Logges user out and redirect to the `Home` page              |                                             |
+| `GET`    | `/books/library`                                    | Renders the `library` page                                   |                                             |
+| `GET`    | `/books/library/category/:category`                 | Gets the category params and renders the `library` page      |                                             |
+| `GET`    | `/books/library/:bookId`                            | Gets the the borrowed book id and rerenders the `library` page |                                             |
+| `POST`   | `/books/add`                                        | Renders `UpdateBook` page                                    | books:{ title, rating, author, imageURL}    |
+| `DELETE` | `/books/delete`                                     | EDIT & DELETE BOOK?                                          |                                             |
+| `GET`    | `/private/profile/:username`                        | Renders user's `Profile` page                                |                                             |
+| `GET`    | `/private/profile/:username/:bookid`                | Confirm the borrow request from the borrower                 |                                             |
+| `GET`    | `/private/profile/message/:messageid/:messageindex` | Confirm the response from the owner                          |                                             |
+| `GET`    | `/private/edit-profile`                             | Renders the `UpdateProfile` page                             |                                             |
+| `POST`   | `/private/edit-profile`                             | Sends the updated user info to the server                    | users:{username, password, email, imageURL} |
+|          |                                                     |                                                              |                                             |
 
 
 
@@ -73,6 +73,12 @@ edit user - user can change his/her profile and upload/remove/change books
         status: {type: String, enum: ["unseen", "seen"]},
         bookId: {type: Schema.Types.ObjectId, ref:"Book"},
     }]
+},
+{
+    timestamps:{
+        createdAt:"created_at",
+        updatedAt:"updated_at"
+    }
 }
 ```
 
@@ -104,14 +110,14 @@ edit user - user can change his/her profile and upload/remove/change books
         "Memoir",
         "Cooking",
         "Art",
-        "Self-help/Personal",
+        "Personal",
         "Development",
         "Motivational",
         "Health",
         "History",
         "Travel",
-        "Guide/How-to",
-        "Families/Relationships",
+        "Guide",
+        "Relationships",
         "Humor",
         "Children",
         "Comic",
@@ -126,6 +132,12 @@ edit user - user can change his/her profile and upload/remove/change books
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     borrower: { type: Schema.Types.ObjectId, ref: "User" },
     booksLikes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
   }
 ```
 
@@ -143,7 +155,9 @@ edit user - user can change his/her profile and upload/remove/change books
 
 ## Git
 
-WIP
+Repo: https://github.com/ohhyangyang/m2-project-library
+
+Deploy: https://x-book.herokuapp.com/
 
 ## Slides
 

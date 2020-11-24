@@ -130,7 +130,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
     });
   }
 });
-
+//POST  `/private/profile/:username/:bookid`
 privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
   const session = req.session.currentUser;
   const email = req.session.currentUser.email;
@@ -285,6 +285,7 @@ privateRouter.post(
       { new: true }
     ).then((updatedUser) => {
       //console.log("updatedUser", updatedUser);
+      req.session.currentUser=updatedUser
       res.redirect(`/private/profile/${username}`);
     });
   }

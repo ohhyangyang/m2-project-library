@@ -60,7 +60,7 @@ authRouter.post("/signup", (req, res, next) => {
 
       User.create({ username: username, email:email, password: hashedPassword })
         .then((createdUser) => {
-          res.redirect("/");
+          res.redirect("/auth/login");
         })
         .catch((err) => {
           console.log(err);

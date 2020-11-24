@@ -90,8 +90,9 @@ function Profile(props) {
                 <img src={book.imageURL} className="image-cover" />
                 <p>{book.title}</p>
                 <p>{book.author}</p>
-                
+                <a href={`/books/delete/${book._id}`}>DELETE BOOK</a>
               </p>
+              
             );
           })}
         </div>

@@ -34,7 +34,7 @@ booksRouter.get("/library", (req, res, next) => {
 
 });
 
-//GET /books/library/:category
+//GET /books/library/category/:category
 booksRouter.get('/library/category/:category',(req,res,next)=>{
   const category = req.params.category;
   console.log("category",category)
@@ -61,7 +61,7 @@ booksRouter.get("/library/:bookid", (req, res, next) => {
       Book.findOneAndUpdate({_id: bookid}, {$set: {status: "pending", borrower: req.session.currentUser._id}}, {new: true})
       .then((updatedBook) =>{
         console.log("updatedBook", updatedBook);
-        // BUTTON HAS TO CHANGE 
+        // BUTTON HAS TO CHANGE  
         res.redirect("/books/library")
       })
     }
@@ -113,12 +113,14 @@ booksRouter.get("/library/:username", (req, res, next) => {
   });
 });
 
-//DELETE /books/library/delete
-booksRouter.delete("/delete", (req, res, next) => {
-  const { bookid } = req.query.bookid;
+//DELETE /books/delete
+booksRouter.get("/delete/:bookid", (req, res, next) => {
+  const { bookid } = req.params;
+  console.log("bookid",bookid)
   Book.findByIdAndDelete(bookid)
-    .then(() => {
-      res.redirect("/library");
+    .then((x) => {
+      console.log("x",x)
+      res.redirect("/about");
     })
     .catch((error) => {
       console.log("error", err);

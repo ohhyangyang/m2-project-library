@@ -214,7 +214,7 @@ function Library(props) {
                     <p>{Book.rating}</p>
                     <a href={`/books/library/${Book._id}`}>Borrow</a>
                     <a href={`/private/profile/${Book.owner.username}`}>
-                      Visit user's profile
+                      {`Visit ${Book.owner.username}'s profile`}
                     </a>
                   </div>
                 );
@@ -240,7 +240,7 @@ function Library(props) {
                           }
                     </a>
                     <a href={`/private/profile/${Book.owner.username}`}>
-                      Visit user's profile
+                    {`Visit ${Book.owner.username}'s profile`}
                     </a>
                   </div>
                 );
