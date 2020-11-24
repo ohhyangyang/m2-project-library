@@ -120,7 +120,7 @@ booksRouter.get("/delete/:bookid", (req, res, next) => {
   Book.findByIdAndDelete(bookid)
     .then((x) => {
       console.log("x",x)
-      res.redirect("/about");
+      res.redirect(`/private/profile/${req.session.currentUser.username}`);
     })
     .catch((error) => {
       console.log("error", err);
