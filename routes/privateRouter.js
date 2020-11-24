@@ -67,6 +67,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                   user: req.params.username,
                   borrowedLibrary: borrowedLibrary,
                   username: session.username,
+                  visitedUser:{}
                 };
 
                 console.log("props", props);
@@ -105,17 +106,26 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
           });
 
-          const props = {
-            userLibrary: userLibrary,
-            userIsLoggedIn,
-            session,
-            user: req.params.username,
-            username: session.username,
-            borrowedLibrary: borrowedLibrary,
-          };
+          User.find({username:req.params.username})
+          .then((foundUser)=>{
+            console.log("foundUser",foundUser);
+            
+            const props = {
+              userLibrary: userLibrary,
+              userIsLoggedIn,
+              session,
+              user: req.params.username,
+              username: session.username,
+              borrowedLibrary: borrowedLibrary,
+              visitedUser:foundUser[0]
+  
+            };
+  
+            console.log("props", props);
+            res.render("Profile", props);
+          })
 
-          console.log("props", props);
-          res.render("Profile", props);
+          
         });
     });
   }

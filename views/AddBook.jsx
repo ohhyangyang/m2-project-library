@@ -12,7 +12,7 @@ function AddBook (props){
         <input type="text" name="author" />
         <br />
         <label>Rating:</label>
-        <input type="number" name="rating" max="5"/>
+        <input type="number" name="rating" max="5" min="0"/>
         <br />
         <label>Category:</label>
         <select name="category" id="categories">

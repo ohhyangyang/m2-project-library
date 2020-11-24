@@ -6,8 +6,10 @@ function Profile(props) {
   return (
     <Layout title="Profile" isLoggedIn={props.userIsLoggedIn} username={props.username} >
       <div id="profileSection">
-        <img id="profilepicture" src={props.session.imageURL}/>
-        <h3>{props.session.username}</h3>
+      {console.log("props.visitedUser.imageURL",props.visitedUser.imageURL) }
+      {console.log("props.session.imageURL",props.session.imageURL)}
+        <img id="profilepicture" src={props.visitedUser.imageURL?(props.visitedUser.imageURL):(props.session.imageURL)}/>
+        <h3>{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}</h3>
         <p>
           {props.userLibrary.length <= 1
             ? `${props.userLibrary.length} book`
@@ -18,11 +20,12 @@ function Profile(props) {
             ? `${props.borrowedLibrary.length} borrowed book`
             : `${props.borrowedLibrary.length} borrowed books`}  
         </p>
-        <p>{props.session.username}</p>
-        <p>{props.session.description ? props.session.description : null}</p>
-        <a href="/private/edit-profile">EDIT PROFILE</a>
+        <p>{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}</p>
+        <p>{props.visitedUser.description ? props.visitedUser.description : props.session.description}</p>
+        
+        <a href="/private/edit-profile">{(!props.visitedUser.imageURL)?"EDIT PROFILE":null}</a>
         <br />
-        <a href="/books/add">ADD BOOK</a>
+        <a href="/books/add">{(!props.visitedUser.imageURL)?"ADD BOOK":null}</a>
       </div>
        
         <div id="approvedBookRequests">
