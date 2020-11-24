@@ -66,8 +66,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                   messagesUnseen: messagesUnseen,
                   user: req.params.username,
                   borrowedLibrary: borrowedLibrary,
-                  username:session.username
-
+                  username: session.username,
                 };
 
                 console.log("props", props);
@@ -77,38 +76,49 @@ privateRouter.get("/profile/:username", (req, res, next) => {
         });
       });
   } else {
-    Book.find({ status: "available" })
-      .then((availableBooks) => {
-        let userLibrary = [];
-        availableBooks.forEach((book, i) => {
-          //console.log("availableBooks", availableBooks)
-          if (book.owner.username == req.params.username) {
-            userLibrary.push(book);
-          }
-        });
-          Book.find({status:"borrowed"})
-          .populate("borrower")
-          .then((borrowedBooks) =>{
+    Book
+    .find({ status: "available" })
+    .then((availableBooks) => {
+
+      let userLibrary = [];
+
+      availableBooks.forEach((book, i) => {
+        //console.log("availableBooks", availableBooks)
+        if (book.owner.username == req.params.username) {
+          userLibrary.push(book);
+        }
+      });
+
+
+      Book.find({ status: "borrowed" })
+        .populate("borrower")
+        .then((borrowedBooks) => {
+
           let borrowedLibrary = [];
+
           borrowedBooks.forEach((book, i) => {
-          if (book.borrower.username == req.params.username) {
-            console.log("req.params", req.params)
-            borrowedLibrary.push(book);
-              }
-          })
-            const props = {
-              userLibrary: userLibrary,
-              userIsLoggedIn,
-              session,
-              user: req.params.username,
-              username:session.username,
-              borrowedLibrary: borrowedLibrary
-            };
-            console.log("props", props)
-            res.render("Profile", props);
+              console.log("borrowesBook",book)
+            if (book.borrower && (book.borrower.username == req.params.username)) {
+              console.log("req.params", req.params);
+              borrowedLibrary.push(book);
+            }
+
+          });
+
+          const props = {
+            userLibrary: userLibrary,
+            userIsLoggedIn,
+            session,
+            user: req.params.username,
+            username: session.username,
+            borrowedLibrary: borrowedLibrary,
+          };
+
+          console.log("props", props);
+          res.render("Profile", props);
         });
-      })
-      };
+    });
+  }
 });
 
 privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
