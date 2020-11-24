@@ -30,16 +30,13 @@ function Library(props) {
           <li class="item">
             <div id="secondCard">
               <a href="/books/library/category/Adventure" class="card-title">
-              Adventure
+                Adventure
               </a>
             </div>
           </li>
           <li class="item last">
             <div id="thirdCard">
-              <a
-                href="/books/library/category/Romance"
-                class="card-title"
-              >
+              <a href="/books/library/category/Romance" class="card-title">
                 Romance
               </a>
             </div>
@@ -47,35 +44,35 @@ function Library(props) {
           <li class="item last">
             <div id="fourthCard">
               <a href="/books/library/category/Contemporary" class="card-title">
-              Contemporary
+                Contemporary
               </a>
             </div>
           </li>
           <li class="item last">
             <div id="fifthCard">
               <a href="/books/library/category/Mystery" class="card-title">
-              Mystery
+                Mystery
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Horror" class="card-title">
-              Horror
+                Horror
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Thriller" class="card-title">
-              Thriller
+                Thriller
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Paranormal" class="card-title">
-              Paranormal
+                Paranormal
               </a>
             </div>
           </li>
@@ -88,113 +85,119 @@ function Library(props) {
           </li>
           <li class="item">
             <div id="firstCard">
-              <a href="/books/library/category/Science Fiction" class="card-title">
-              Science Fiction
+              <a
+                href="/books/library/category/Science Fiction"
+                class="card-title"
+              >
+                Science Fiction
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Memoir" class="card-title">
-              Memoir
+                Memoir
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Cooking" class="card-title">
-              Cooking
+                Cooking
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Art" class="card-title">
-              Art
+                Art
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Personal" class="card-title">
-              Personal
+                Personal
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Development" class="card-title">
-              Development
+                Development
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Motivational" class="card-title">
-              Motivational
+                Motivational
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Health" class="card-title">
-              Health
+                Health
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/History" class="card-title">
-              History
+                History
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Travel" class="card-title">
-              Travel
+                Travel
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Guide" class="card-title">
-              Guide
+                Guide
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
-              <a href="/books/library/category/Relationships" class="card-title">
-              Relationships
+              <a
+                href="/books/library/category/Relationships"
+                class="card-title"
+              >
+                Relationships
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Humor" class="card-title">
-              Humor
+                Humor
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Children" class="card-title">
-              Children
+                Children
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Comic" class="card-title">
-              Comic
+                Comic
               </a>
             </div>
           </li>
           <li class="item">
             <div id="firstCard">
               <a href="/books/library/category/Other" class="card-title">
-              Other
+                Other
               </a>
             </div>
           </li>
@@ -223,7 +226,19 @@ function Library(props) {
                     <p>{Book.title}</p>
                     <p> {Book.author}</p>
                     <p>{Book.rating}</p>
-                    <a href={`/books/library/${Book._id}`}>Borrow</a>
+                    <a
+                      href={
+                        Book.status == "available"
+                          ? `/books/library/${Book._id}`
+                          : "javascript:;"
+                      }
+                      className
+                    >
+                      {Book.status=="available"
+                      ? "Borrow"
+                      : "Taken"      
+                          }
+                    </a>
                     <a href={`/private/profile/${Book.owner.username}`}>
                       Visit user's profile
                     </a>

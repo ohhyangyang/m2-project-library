@@ -30,7 +30,7 @@ const books = [
     imageURL:"https://m.media-amazon.com/images/I/51mQuP6+FOL.jpg",
     status: "available",
     gift:true,
-    category:"Families/Relationships",
+    category:"Relationships",
     comments:[],
     
     booksLikes:[]
@@ -102,7 +102,7 @@ const books = [
     imageURL:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Apropos_of_Nothing_%28Woody_Allen%29.png/1024px-Apropos_of_Nothing_%28Woody_Allen%29.png",
     status: "borrowed",
     gift:true,
-    category:"Self-help/Personal",
+    category:"Personal",
     comments:[],
     
     booksLikes:[]
