@@ -6,8 +6,7 @@ function Profile(props) {
   return (
     <Layout title="Profile" isLoggedIn={props.userIsLoggedIn} username={props.username} >
       <div id="profileSection">
-      {console.log("props.visitedUser.imageURL",props.visitedUser.imageURL) }
-      {console.log("props.session.imageURL",props.session.imageURL)}
+  
         <img id="profilepicture" src={props.visitedUser.imageURL?(props.visitedUser.imageURL):(props.session.imageURL)}/>
         <h3>{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}</h3>
         <p>
@@ -91,7 +90,7 @@ function Profile(props) {
                 <img src={book.imageURL} className="image-cover" />
                 <p>{book.title}</p>
                 <p>{book.author}</p>
-                <a href={`/books/library/${book._id}`}>Borrow</a>
+                
               </p>
             );
           })}

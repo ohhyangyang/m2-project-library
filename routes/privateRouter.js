@@ -108,7 +108,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
           User.find({username:req.params.username})
           .then((foundUser)=>{
-            console.log("foundUser",foundUser);
+            //console.log("foundUser",foundUser);
             
             const props = {
               userLibrary: userLibrary,
@@ -149,14 +149,38 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
     .then((foundBook) => {
       // It's a gift and the user says yes
       console.log("foundBook", foundBook);
+
+
       if (foundBook.gift === true && statusBorrowed === "yes") {
-        console.log("This book should be deleted");
-        Book.deleteOne({ _id: bookid }).then((deletedBook) => {
-          // borrower --> owner
-          // borrower = owner
+        console.log("I am going to lend this book to someone else");
+        Book.findByIdAndUpdate(
+          bookid,
+          { status: "borrowed" },
+          { new: true }
+        ).then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
-          console.log("The deleted item", deletedBook);
+          //console.log("updated Book", updatedBook);
+          // update message box with the info displaying in the borrower profile
+          const borrowerId = updatedBook.borrower;
+          User.findByIdAndUpdate(
+            { _id: borrowerId },
+            {
+              $push: {
+                message: {
+                  content: `${username} has approved the request for ${updatedBook.title}, Email: ${email}`,
+                  status: "unseen",
+                  bookId: updatedBook._id,
+                },
+              },
+            },
+            { new: true }
+          ).then((x) => {
+            console.log("It worked");
+          });
         });
+
+
+
       } else if (foundBook.gift === true && statusBorrowed === "no") {
         //console.log("This book is going back to my shelf");
         Book.findByIdAndUpdate(
@@ -230,7 +254,7 @@ privateRouter.get(
           },
         }
       ).then(() => {
-        res.redirect(`/private/profile/uros`);
+        res.redirect(`/private/profile/${foundUser[0].username}`);
       });
     });
   }
