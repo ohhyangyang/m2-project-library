@@ -4,11 +4,13 @@ const User = require("../models/User.model");
 
 const books = require("./books-mock-data");
 const users = require("./users-mock-data");
+require("dotenv").config();
+
 
 const DB_NAME = "booklibrary";
 
 mongoose
-  .connect(`mongodb://localhost:27017/${DB_NAME}`, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
