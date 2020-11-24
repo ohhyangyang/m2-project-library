@@ -85,6 +85,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
           if (book.owner.username == req.params.username) {
             userLibrary.push(book);
           }
+        });
           Book.find({status:"borrowed"})
           .populate("borrower")
           .then((borrowedBooks) =>{
@@ -94,7 +95,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
             console.log("req.params", req.params)
             borrowedLibrary.push(book);
               }
-            })
+          })
             const props = {
               userLibrary: userLibrary,
               userIsLoggedIn,
@@ -107,8 +108,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
             res.render("Profile", props);
         });
       })
-      });
-  }
+      };
 });
 
 privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
