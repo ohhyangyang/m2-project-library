@@ -61,14 +61,19 @@ edit user - user can change his/her profile and upload/remove/change books
 ### User model 
 
 ```js
-{username: {type: String, required: true, unique: true},
-email: {type: String, required: true},
-password:{type: String, required:true},
-imageURL:{type: String},
-description: {type: String, maxLength: 280}},
-booksLiked: [{type.Schema.Types.ObjectId, ref:"Book"}],
-booksOffered:  [{type.Schema.Types.ObjectId, ref:"Book"}]
-booksBorrowed [{type.Schema.Types.ObjectId, ref:"Book"}]}
+{
+    username: {type: String, required: true, unique: true},
+    email: {type: String, required: true},
+    password:{type: String, required:true},
+    imageURL:{type: String, default:"/images/default_user_image.png"},
+    description: {type: String, maxLength: 280},
+    booksLiked: [{type:Schema.Types.ObjectId, ref:"Book"}],
+    booksOffered:  [{type:Schema.Types.ObjectId, ref:"Book"}],
+    message: [{content: String, 
+        status: {type: String, enum: ["unseen", "seen"]},
+        bookId: {type: Schema.Types.ObjectId, ref:"Book"},
+    }]
+}
 ```
 
 
@@ -76,21 +81,52 @@ booksBorrowed [{type.Schema.Types.ObjectId, ref:"Book"}]}
 ### Books model
 
 ```js
-{title: {type:String, required:true},
-author:{type:String, required:true},
-rating:{type:Number},
-imageURL:{type:String},
-status: {type:String, enum: "available", "pending","borrowed"},
-gift: {type: Boolean},
-owner: {type: Schema.Types.ObjectId,  ref: "User"}},
-borrower: {type: Schema.Types.ObjectId, ref: "User"}},
-booksLikes: [{type:Schema.Types.ObjectId, ref:"User"],
-comments: [
 {
-type: {String, maxLength:100},
-user: {type: Schema.Types.ObjectId, ref: "User"}
-}]
-}
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    rating: { type: Number, max:5 },
+    imageURL: { type: String },
+    status: { type: String, enum: ["available", "pending", "borrowed"] },
+    gift: { type: Boolean },
+    category: {
+      type: String,
+      enum: [
+        "Fantasy",
+        "Adventure",
+        "Romance",
+        "Contemporary",
+        "Mystery",
+        "Horror",
+        "Thriller",
+        "Paranormal",
+        "Fiction",
+        "Science Fiction",
+        "Memoir",
+        "Cooking",
+        "Art",
+        "Self-help/Personal",
+        "Development",
+        "Motivational",
+        "Health",
+        "History",
+        "Travel",
+        "Guide/How-to",
+        "Families/Relationships",
+        "Humor",
+        "Children",
+        "Comic",
+        "Other" 
+      ],
+    },
+    comments: [
+      {
+        comment: { type: Schema.Types.ObjectId, ref: "Comment" }
+      },
+    ],
+    owner: { type: Schema.Types.ObjectId, ref: "User" },
+    borrower: { type: Schema.Types.ObjectId, ref: "User" },
+    booksLikes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  }
 ```
 
 
@@ -100,7 +136,6 @@ user: {type: Schema.Types.ObjectId, ref: "User"}
 - return the book option
 - Message/Chat option for users
 - Responsive 
-- Animations --> https://floresprats.com/books/
 
 ## Links
 
