@@ -20,6 +20,7 @@ function Signup(props) {
         <button className="account-button" type="submit">
           SIGN UP
         </button>
+        
         {props.errorMessage ? <div>{props.errorMessage}</div> : null}
       </form>
     </Layout>

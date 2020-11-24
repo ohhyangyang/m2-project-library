@@ -117,8 +117,9 @@ authRouter.post('/login', (req,res,next) => {
 })
 
 // GET /auth/logout
-authRouter.get('/logout',isLoggedIn, (req,res,next)=>{
+authRouter.get('/logout', isLoggedIn, (req,res,next)=>{
     req.session.destroy((err)=>{
+      console.log("req.session", req.session )
         if(err){
             res.redirect('/error')
         }

@@ -22,7 +22,7 @@ const users = [
     email: "yangyang@gmail.com",
     password: "$2b$10$w7v3LkBoY/CqNk42fJ9eyeDgr/iq3q6hWfE4X1yrgwCkpkvcfBijm",
     description: "Prefer drawing than reading",
-    imageURL:"https://avatars2.githubusercontent.com/u/65769058?s=460&u=fb60ab6bb034aa94e64e0784bd2749dfa460ca1a&v=4", 
+    imageURL:"https://res.cloudinary.com/daj2fsogl/image/upload/v1606171613/book-x-images/yang_profile_pic_eyqmai.png", 
     message: [{content: "", status: "seen"}],
     booksLiked:[]
   },
@@ -31,7 +31,7 @@ const users = [
     email: "juliane@mail.com",
     password: "$2b$10$Rz6yjflHfLhk0rbl99x78ejyc1.Bfayw819qzDTImrhAMwXyhdkAG",
     description: "Passionate reader",
-    imageURL:"https://www.diariodesevilla.es/2019/02/17/ocio/nina-Juliane-Lepoureau-escena-pelicula_1328877559_104780784_1200x675.jpg", 
+    imageURL:"https://res.cloudinary.com/daj2fsogl/image/upload/v1606171613/book-x-images/juliane_profile_pic_vvc1ta.png", 
     message: [{content: "", status: "seen"}],
     booksLiked:[]
   },
@@ -49,7 +49,7 @@ const users = [
     email: "marta@mail.com",
     password: "$2b$10$z28JCp/6JqazYGf/eeYAF.BgEE6ldjInt1Zq11HWSXHOB4KdIhgdu",
     description: "I love reading at the beach",
-    imageURL:"https://www.mmarti.es/wp-content/uploads/2020/11/marta_marti-15-1280x1920.jpg", 
+    imageURL:"https://res.cloudinary.com/daj2fsogl/image/upload/v1606171311/book-x-images/marta_profile_pic_dvt2bx.jpg", 
     message: [{content: "", status: "seen"}],
     booksLiked:[]
   },
@@ -58,7 +58,7 @@ const users = [
     email: "david@mail.com",
     password: "$2b$10$pBrNkL2tuPXn6dYwloueae811Obq8k78ytz0KoRIp/3PJwCdKowcW",
     description: "Viva la vida",
-    imageURL:"https://www.quien.net/wp-content/uploads/David.jpg", 
+    imageURL:"https://res.cloudinary.com/daj2fsogl/image/upload/v1606171245/book-x-images/david_profile_pic_qjv9mo.jpg", 
     message: [{content: "", status: "seen"}],
     booksLiked:[]
   },
@@ -67,7 +67,7 @@ const users = [
     email: "uros@mail.com",
     password: "$2b$10$ewcqNiBvHagZ1ucos9pbcuF3Dr7yN7MUo3w2jNVcHQXtNUeh9sf.q",
     description: "Recording",
-    imageURL:"https://www.strath.ac.uk/media/1newwebsite/courses/science/600x600/Adv_Comp_Sci.jpg", 
+    imageURL:"https://res.cloudinary.com/daj2fsogl/image/upload/v1606171309/book-x-images/uros_profile_pic_rb2kb6.jpg", 
     message: [{content: "", status: "seen"}],
     booksLiked:[]
   },

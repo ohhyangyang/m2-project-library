@@ -1,5 +1,5 @@
 const React = require("react");
-const isLoggedIN = require("../utils/isLoggedIn");
+const isLoggedIn = require("../utils/isLoggedIn");
 
 function Layout(props) {
   return (

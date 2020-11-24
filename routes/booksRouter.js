@@ -83,7 +83,7 @@ booksRouter.post("/add", parser.single('bookcoverimage'), (req, res, next) => {
   Book.create({ title: title, author: author, category: category, rating: rating, gift: gift, imageURL: imageUrl, status: "available", owner: req.session.currentUser._id })
     .then((createdBook) => {
       console.log("createdBooK", createdBook);
-      res.redirect("/");
+      res.redirect("/books/library");
     })
     .catch((err) => {
       console.log(err);
