@@ -20,19 +20,13 @@ function Home(props) {
     <div id="splashscreen">
       <h1>X Book</h1>
       <p>Exchange, borrow and read</p>
-      <img src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606177091/book-x-images/book-x_shmvr4.gif" />
+      <img src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606229899/book-x-images/book_splash_nbjabk.gif" />
       <br />
-      <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
-      </div>
       <br />
-      <a href="/auth/login" className="button">
-        LOG IN
-      </a>
-      <br />
-      <a href="/auth/signup" className="button">
-        SIGN UP
-      </a>
+      <a class="btn btn-info" href="/auth/login" role="button">Log In</a>
+
+<br />
+<a class="btn btn-info" href="/auth/signup" role="button">Sign up</a>
     </div>
     <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
