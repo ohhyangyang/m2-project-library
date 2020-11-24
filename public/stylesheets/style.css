@@ -1,3 +1,7 @@
+
+
+/* Mobile first, we start from the smallest viewport width */
+
 body {
   
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -55,10 +59,6 @@ ul {
   font-size: 1.2rem;
 }
 
-#firstCard {
-  /* background-color: #9E8576; */
-}
-
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -82,9 +82,38 @@ ul {
   height: 180px
 }
 
-#splashscreen {
-  background-color: #478DE6;
+h1 {
+  color: white
 }
+
+p {
+  color: white
+}
+
+/*-----------------SPLASHSCREEN----------------------*/
+
+
+#splashscreen {
+  background-color: #21384C;
+}
+
+a.splash {
+  color:white;
+}
+
+.btn {
+  color: black;
+  background-color: #FFCECE;
+  height: 40px;
+  width: 300px; 
+  border-color: #FFCECE ;
+}
+
+
+
+
+
+
 
 /*-----------------FOOTER----------------------*/
 
