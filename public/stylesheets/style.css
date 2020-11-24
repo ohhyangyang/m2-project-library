@@ -63,6 +63,13 @@ ul {
   width: 0px;
 }
 
+#profilepicture {
+  border-radius: 50%;
+  width:90px;
+  height:90px;
+  object-fit:cover;
+}
+
 /*-----------------PROFILE PAGE----------------------*/
 
 #profilePicture {
@@ -72,7 +79,11 @@ ul {
 /*-----------------LIBRARY----------------------*/
 
 .image-cover {
-  height: 280px
+  height: 180px
+}
+
+#splashscreen {
+  background-color: #478DE6;
 }
 
 /*-----------------FOOTER----------------------*/

@@ -2,7 +2,8 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function Library (props){
-    return(<Layout title="Library" isLoggedIn = {props.userIsLoggedIn}>
+    return(<Layout title="Library" isLoggedIn = {props.userIsLoggedIn} username={props.username}>
+    {console.log("propstesting",props.username)}
         <h2>Library</h2>
         <p>Check out different categories</p>
         <div class="horizontal-scroll">

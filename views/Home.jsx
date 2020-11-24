@@ -4,22 +4,48 @@ const Card = require("./components/Card");
 
 function Home(props) {
   return (
-    <Layout title="Home Page" isLoggedIn = {props.userIsLoggedIn} 
-    user = {props.session.username}>
-    {/* {console.log("Home Boolean",props.userIsLoggedIn)} */}
-      <div id="header-section"><h1>Books</h1>
-      <p>Discover books</p>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <title> {props.title ? props.title : "My App"} </title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+          crossOrigin="anonymous"
+        ></link>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+      </head>
+      <body>
+    <div id="splashscreen">
+      <h1>X Book</h1>
+      <p>Exchange, borrow and read</p>
+      <img src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606177091/book-x-images/book-x_shmvr4.gif" />
+      <br />
+      <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
       </div>
-
-      {/*<Card
-        text="smaller component example"
-        image="https://i.imgur.com/OH7dtc0.png"
-      />
-      <Card
-        text="second example of component use"
-        image="https://i.imgur.com/dHdzhWn.png"
-      />*/}
-    </Layout>
+      <br />
+      <a href="/auth/login" className="button">
+        LOG IN
+      </a>
+      <br />
+      <a href="/auth/signup" className="button">
+        SIGN UP
+      </a>
+    </div>
+    <script
+          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossOrigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+          crossOrigin="anonymous"
+        ></script>
+      </body>
+    </html>
   );
 }
 
