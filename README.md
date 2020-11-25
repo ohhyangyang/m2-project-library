@@ -1,6 +1,6 @@
-# M2 Project - Yang & Juliane
+# XBook - M2 Project - Yang & Juliane
 
-
+![](https://images.unsplash.com/photo-1549675584-91f19337af3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80)
 
 ## Description
 

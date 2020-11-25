@@ -52,12 +52,61 @@ a.splash {
 
 /*-----------------Layout--------------------------------------------*/
 #layout-nav{
-
+  background-color: #f5f1d1;
 }
+#layout-nav nav-link:hover{
+  color: #21384C; 
+  font-size: 1rem;
+}
+#layout-nav .xbook-logo{
+  width: 30px;
+}
+
+#layout-nav #navbarNavAltMarkup{
+  margin-top: 20px;
+}
+
+
 
 #layout-footer{
+  background-color: #21384C;
+  width: 100vw;
 
 }
+
+#layout-footer .footer-wrapper{
+  padding: 30px 40px;
+  
+}
+
+#layout-footer .xbook-logo{
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+#layout-footer .footer-title{
+  color: white;
+  font-size: 1.2rem;
+}
+
+#layout-footer .followus-container img{
+  width: 20px;
+  margin: 0 10px;
+  margin-bottom: 10px;
+}
+
+#layout-footer .footer-text{
+  color: white;
+  font-style: italic;
+
+}
+
+#layout-footer .aboutus-container .footer-text:hover{
+  color:#f5f1d1;
+  
+
+}
+
 
 
 
