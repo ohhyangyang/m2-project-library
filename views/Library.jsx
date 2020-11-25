@@ -220,7 +220,7 @@ function Library(props) {
             ? props.categoryBooks.map((Book) => {
                 return (
                   <div className="book">
-                  
+                  {console.log("Book",Book)}
                     <img src={Book.imageURL} className="image-cover" />
                     <div className="title-author-rating-wrapper">
                     <p className="book-title">{Book.title}</p>

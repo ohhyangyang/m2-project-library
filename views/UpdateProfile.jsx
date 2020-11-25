@@ -4,7 +4,8 @@ const Layout = require("./Layout");
 
 function UpdateProfile(props) {
   return (
-    <Layout title="Update Profile" isLoggedIn={props.userIsLoggedIn}>
+    <Layout title="Update Profile" isLoggedIn={props.userIsLoggedIn} username={props.username}>
+    {console.log("testing",props.userIsLoggedIn)}
       <form
         action="/private/edit-profile"
         method="POST"
