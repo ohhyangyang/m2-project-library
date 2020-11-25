@@ -27,7 +27,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
           let messagesUnseen = [];
           messages.forEach((message, i) => {
             if (message && message.status === "unseen") {
-              //console.log("message", message)
+              
               messagesUnseen.push(message);
             }
           });
@@ -44,14 +44,12 @@ privateRouter.get("/profile/:username", (req, res, next) => {
               });
 
               Book.find({ status: "borrowed" }).then((borrowedBooks) => {
-                console.log("borrowedBooks", borrowedBooks);
-                console.log("session._id", session._id);
+                
 
                 let borrowedLibrary = [];
                 borrowedBooks.forEach((book, i) => {
                   if (book.borrower == session._id) {
-                    console.log("book.borrower", book.borrower);
-                    console.log("session._id", session._id);
+                    
 
                     borrowedLibrary.push(book);
                   }
@@ -70,7 +68,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                   visitedUser:{}
                 };
 
-                console.log("props", props);
+                
                 res.render("Profile", props);
               });
             });
@@ -84,7 +82,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
       let userLibrary = [];
 
       availableBooks.forEach((book, i) => {
-        //console.log("availableBooks", availableBooks)
+        
         if (book.owner.username == req.params.username) {
           userLibrary.push(book);
         }
@@ -98,9 +96,9 @@ privateRouter.get("/profile/:username", (req, res, next) => {
           let borrowedLibrary = [];
 
           borrowedBooks.forEach((book, i) => {
-              console.log("borrowesBook",book)
+              
             if (book.borrower && (book.borrower.username == req.params.username)) {
-              console.log("req.params", req.params);
+              
               borrowedLibrary.push(book);
             }
 
@@ -108,7 +106,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
 
           User.find({username:req.params.username})
           .then((foundUser)=>{
-            //console.log("foundUser",foundUser);
+            
             
             const props = {
               userLibrary: userLibrary,
@@ -121,7 +119,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
   
             };
   
-            console.log("props", props);
+            
             res.render("Profile", props);
           })
 
@@ -135,31 +133,27 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
   const session = req.session.currentUser;
   const email = req.session.currentUser.email;
   const userIsLoggedIn = Boolean(req.session.currentUser);
-  //console.log("session", session)
-  //console.log("req.username",req.session.currentUser.username )
+ 
   const { bookid, username } = req.params;
-  //console.log("bookid", bookid);
-  //console.log("req.params", req.params);
-  //console.log("req.body.statusBorrowed", req.body.statusBorrowed);
+
   const { statusBorrowed } = req.body;
-  //const username = req.params.username;
-  //console.log("username in the url", username); //david
+  
   Book.findById(bookid)
     .populate("owner")
     .then((foundBook) => {
       // It's a gift and the user says yes
-      console.log("foundBook", foundBook);
+      
 
 
       if (foundBook.gift === true && statusBorrowed === "yes") {
-        console.log("I am going to lend this book to someone else");
+     
         Book.findByIdAndUpdate(
           bookid,
           { status: "borrowed" },
           { new: true }
         ).then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
-          //console.log("updated Book", updatedBook);
+         
           // update message box with the info displaying in the borrower profile
           const borrowerId = updatedBook.borrower;
           User.findByIdAndUpdate(
@@ -175,33 +169,33 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
             },
             { new: true }
           ).then((x) => {
-            console.log("It worked");
+          
           });
         });
 
 
 
       } else if (foundBook.gift === true && statusBorrowed === "no") {
-        //console.log("This book is going back to my shelf");
+      
         Book.findByIdAndUpdate(
           bookid,
           { status: "available" },
           { new: true }
         ).then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
-          //console.log("updated Book", updatedBook);
+         
         });
       }
       // It's not a gift and the user says yes
       else if (foundBook.gift === false && statusBorrowed === "yes") {
-        console.log("I am going to lend this book to someone else");
+
         Book.findByIdAndUpdate(
           bookid,
           { status: "borrowed" },
           { new: true }
         ).then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
-          //console.log("updated Book", updatedBook);
+
           // update message box with the info displaying in the borrower profile
           const borrowerId = updatedBook.borrower;
           User.findByIdAndUpdate(
@@ -217,20 +211,20 @@ privateRouter.post("/profile/:username/:bookid", (req, res, next) => {
             },
             { new: true }
           ).then((x) => {
-            console.log("It worked");
+      
           });
         });
       }
       // It's not a gift and the user says no
       else if (foundBook.gift === false && statusBorrowed === "no") {
-        //console.log("I am not going to lend this book to someone else");
+
         Book.findByIdAndUpdate(
           bookid,
           { status: "available" },
           { new: true }
         ).then((updatedBook) => {
           res.redirect(`/private/profile/${username}`);
-          //console.log("updated Book", updatedBook);
+     
         });
       }
     });
@@ -242,10 +236,9 @@ privateRouter.get(
   "/profile/message/:messageid/:messageindex",
   (req, res, next) => {
     const { messageid, messageindex } = req.params;
-    //console.log("req.params", req.params);
+  
     User.find({ "message._id": messageid }).then((foundUser) => {
-      console.log("foundUser", foundUser);
-      console.log("foundUser.username", foundUser[0].username);
+
       User.update(
         { username: foundUser[0].username },
         {
@@ -266,7 +259,7 @@ privateRouter.get("/edit-profile", (req, res, next) => {
   const props = { userIsLoggedIn };
   const { username } = req.session.currentUser;
   User.findOne({ username: username }).then((foundUser) => {
-    //console.log("foundUser", foundUser)
+
     const props = { foundUser: foundUser };
     res.render("UpdateProfile", props);
   });
@@ -277,14 +270,20 @@ privateRouter.post(
   parser.single("userimage"),
   (req, res, next) => {
     const { username, description, imageURL } = req.body;
-    const imageUrl = req.file.secure_url;
+
+    const oldImageURL = req.session.currentUser.imageURL;
+
+    let imageUrl;
+
+    req.file? (imageUrl = req.file.secure_url):(imageUrl = oldImageURL)
+    
     const userId = req.session.currentUser._id;
     User.findByIdAndUpdate(
       userId,
       { username, description, imageURL: imageUrl },
       { new: true }
     ).then((updatedUser) => {
-      //console.log("updatedUser", updatedUser);
+    
       req.session.currentUser=updatedUser
       res.redirect(`/private/profile/${username}`);
     });

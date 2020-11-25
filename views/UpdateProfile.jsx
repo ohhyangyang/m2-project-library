@@ -12,7 +12,7 @@ function UpdateProfile(props) {
         <input type="text" name="description" defaultValue={props.foundUser.description} />
         <br />
         <label>Image:</label>
-        <input type="file" name="userimage" />
+        <input type="file" name="userimage"/>
         <br />
         <button className="account-button" type="submit">
           UPDATE PROFILE
