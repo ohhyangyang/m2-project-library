@@ -51,21 +51,29 @@ a.splash {
 }
 
 /*-----------------Layout--------------------------------------------*/
+#layout-nav{
 
+}
+
+#layout-footer{
+
+}
 
 
 
 
 /*-----------------LIBRARY--------------------------------------------*/
-/* Horizontal Scroll */
 
-.horizontal-scroll {
+
+/*------- Horizontal Scroll------- */
+
+#horizontal-scroll {
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   /*margin-top: 0.5rem;
   margin-bottom: 0.5rem;*/
 }
 
-.hs {
+#horizontal-scroll .hs {
   display: flex;
   flex-direction: row;
   padding: 0 2px;
@@ -74,13 +82,13 @@ a.splash {
   scroll-snap-type: x proximity;
 }
 
-ul {
+#horizontal-scroll ul {
   list-style: none;
   padding: 0;
 }
 
-.hs>li,
-.item {
+#horizontal-scroll .hs>li,
+#horizontal-scroll .item {
   scroll-snap-align: center;
   /* margin-right: 1rem; */
   margin-top: 1rem;
@@ -93,7 +101,7 @@ ul {
   border-radius: 8px;
 }
 
-.hs>li {
+#horizontal-scroll .hs>li {
   background-color: var(--red-block);
   min-height: 2rem;
   min-width: 10rem;
@@ -101,12 +109,18 @@ ul {
   /* padding: 1rem; */
 }
 
-.card-title {
+#horizontal-scroll .card-title {
   font-size: 1.2rem;
 }
 
-::-webkit-scrollbar {
+#horizontal-scroll ::-webkit-scrollbar {
   width: 0px;
+}
+
+
+/*------- books------- */
+#library-books .image-cover{
+  width: 80vw;
 }
 
 /*-----------------AddBook & EditProfile--------------------------------------------*/
