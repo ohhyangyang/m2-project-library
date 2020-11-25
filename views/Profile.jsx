@@ -22,44 +22,47 @@ function Profile(props) {
           {/*{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}*/}
         </div>
         <div>
-          {props.userLibrary.length <= 1
-            ? `${props.userLibrary.length} book`
-            : `${props.userLibrary.length} books`}
+        {props.userLibrary.length <= 1
+            ? <div><div className="number">{props.userLibrary.length}</div> book</div>
+            : <div><div className="number">{props.userLibrary.length}</div> books</div>}
         </div>
         <div>
           {props.borrowedLibrary.length <= 1
-            ? `${props.borrowedLibrary.length} borrowed book`
-            : `${props.borrowedLibrary.length} borrowed books`}
+            ? <div><div className="number" >{props.borrowedLibrary.length} </div> book </div>
+            : <div><div className="number">{props.borrowedLibrary.length} </div> books borrowed</div>}
         </div>
       </div>
       <div id="profileInfo">
-        <p>
+        <div>
           {props.visitedUser.username
             ? props.visitedUser.username
-            : props.session.username}{" "}
-        </p>{" "}
-        <p>
+            : props.session.username}
+        </div>
+        <div>
           📚📚📚
           {props.visitedUser.description
             ? props.visitedUser.description
             : props.session.description}
-        </p>
+        </div>
       </div>
-      <div id="profilebuttons">
-        <a href="/private/edit-profile" class="btn btn-info">
-          {!props.visitedUser.imageURL ? "EDIT PROFILE" : null}
-        </a>
-        <br />
-        <a href="/books/add" class="btn btn-info">
-          {!props.visitedUser.imageURL ? "ADD BOOK" : null}
-        </a>
+      <div id="profilebuttons container" class="row">
+        <div class="col-xs-6 linkprofile">
+          <a href="/private/edit-profile" class="btn btn-info">
+            {!props.visitedUser.imageURL ? "Edit profile" : null}
+          </a>
+        </div>
+        <div class="col-xs-6 linkprofile">
+          <a href="/books/add" class="btn btn-info">
+            {!props.visitedUser.imageURL ? "Add book" : null}
+          </a>
+        </div>
       </div>
 
-      <p>
+      <h3>
         {props.messagesUnseen && props.messagesUnseen.length >= 1
           ? "The following books have been approved for borrowing"
           : null}
-      </p>
+      </h3>
       <div className="user-library container">
         {props.messagesUnseen
           ? props.messagesUnseen.map((message, i) => {
@@ -75,9 +78,9 @@ function Profile(props) {
           : null}
       </div>
 
-      <p>
+      <p class="headlineprofile">
         {props.booksOwnedbyTheUser && props.booksOwnedbyTheUser.length >= 1
-          ? "Open requests from other users:"
+          ? "Open requests from other users"
           : null}
       </p>
       <div className="user-library container">
@@ -86,12 +89,12 @@ function Profile(props) {
             ? props.booksOwnedbyTheUser.map((book, i) => {
                 return (
                   <div key={i}>
-                    <img src={book.imageURL} className="image-cover" />
-                    <div>
-                      {book.title}
-                      <br /> {book.author}
-                    </div>
-                    <p>Do you want to lend this book?</p>
+                  <div class="book-info container">
+                  <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+                  </div>
+                  <div>
+                    <div>Do you want to lend this book?</div>
                     <form
                       action={`/private/profile/${props.session.username}/${book._id}`}
                       method="POST"
@@ -112,11 +115,11 @@ function Profile(props) {
                         />
                       </label>
                       <label for="no">No</label>
-                      <br />
                       <button className="btn" type="submit">
                         Submit
                       </button>
                     </form>
+                    </div>
                   </div>
                 );
               })
@@ -124,33 +127,40 @@ function Profile(props) {
         </div>
       </div>
 
-      <p>{props.userLibrary ? "Your library" : null}</p>
+      <p class="headlineprofile">
+      {props.userLibrary ? "Your library" : null}</p>
       <div className="user-library container">
         {props.userLibrary.map((book, i) => {
           return (
             <div key={i}>
-              <img src={book.imageURL} className="image-cover" />
-              <p>{book.title}</p>
-              <p>{book.author}</p>
+            <div class="book-info container">
+            <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+            </div>
+              <div class="container delete-book"> 
               <a href={`/books/delete/${book._id}`}>
                 <img className="delete-icon" src="/images/recycle-bin.png" />
-                DELETE BOOK
-              </a>
+                Remove book
+              </a>             
+              </div>
+              <hr></hr>
             </div>
           );
         })}
       </div>
 
-      <p>
-          {props.borrowedLibrary.length > 1 ? "Your borrowed library" : null}
-        </p>
+      <p class="headlineprofile">
+        {props.borrowedLibrary.length > 1 ? "Your borrowed library" : null}
+      </p>
       <div className="user-library container">
         {props.borrowedLibrary.map((book, i) => {
           return (
             <div key={i}>
-              <img src={book.imageURL} className="image-cover" />
-              <p>{book.title}</p>
-              <p>{book.author}</p>
+            <div class="book-info container">
+                  <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+            </div>
+              <hr></hr>
             </div>
           );
         })}
