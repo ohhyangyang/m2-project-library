@@ -1,15 +1,9 @@
-
-
 /* Mobile first, we start from the smallest viewport width */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 body {
-  
   font: 14px "Roboto"
 }
-
-
 /*-----------------Login & Signup PAGE-------------------------------------*/
-
 /*-----------LOGIN-------------*/
 #login-form{
   width: 80vw;
@@ -31,14 +25,10 @@ body {
   box-shadow: 2px 2px #FFCECE;
   height: 40px;
   width: 100%; 
-  
   margin-top: 20px;
-
   margin-bottom: 20px;
   font-weight: 500;
-
 }
-
 #login-form .btn:hover{
   color:#FFCECE ;
 }
@@ -62,7 +52,6 @@ body {
   font-weight: 300;
   font-size: 0.8rem;
   margin-bottom: 50px;
-
 }
 #login-form .signup-here>a{
   color: #FFCECE;
@@ -84,11 +73,9 @@ body {
   box-shadow: 2px 2px #FFCECE;
   height: 40px;
   width: 100%; 
-  
   margin-top: 20px;
   margin-bottom: 50px;
   font-weight: 500;
-
 }
 #signup-form .error-message{
   color:#FFCECE ;
@@ -109,39 +96,134 @@ body {
 #signup-form .different-label{
   padding-top: 15px;
 }
-
-
 /*-----------------ABOUT PAGE-------------------------------------*/
-
 /*-----------------HOME----------------------------------------------*/
-
-
 #splashscreen {
   background-color: #1D3449;
 }
-
 a.splash {
   color:white;
 }
-
-
 /*-----------------PROFILE PAGE-------------------------------------*/
-
 #profilePicture {
   height: 80px; 
 }
-
 .delete-icon {
   height: 20px;
 }
-
 #profilepicture {
   border-radius: 50%;
   width:90px;
   height:90px;
   object-fit:cover;
 }
-
+.image-cover{
+  width: 150px;
+  height: 150px;
+  object-fit:cover;
+}
+.image-cover-small {
+  width: 50px;
+  object-fit:cover;
+  border-radius: 10%;
+}
+#profileSection {
+  display:flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px
+}
+.user-library {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+.profilebuttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 20px;
+}
+.btn-info {
+  background-color: white;
+  border-color: 0.5px solid grey;
+  color: grey;
+  font-size: 12px;
+}
+#profileInfo {
+  display: flex; 
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+.number{
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.linkprofile {
+  margin-left: 20px;
+}
+.book-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: flex-start;
+}
+.delete-book {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+.delete-book a {
+  color: red;
+}
+.delete-book a:hover {
+  text-decoration: none;
+}
+.cover-small {
+  margin: 10px;
+}
+.headlineprofile{
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+#addbookicon{
+  height: 50px;
+}
+.iconbookupload{
+  display: flex;
+  justify-content: flex-start;
+}
+.dot {
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+#confirmrequest { 
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  background-color: #21384C;
+  margin-top: 10px;
+}
+.confirmationbox {
+  display: flex; 
+  align-items: center;
+}
 /*-----------------Layout--------------------------------------------*/
 #layout-nav{
   background-color: #f5f1d1;
@@ -154,74 +236,49 @@ a.splash {
 #layout-nav .xbook-logo{
   width: 30px;
 }
-
 #layout-nav #navbarNavAltMarkup{
   margin-top: 20px;
 }
-
-
-
 #layout-footer{
   background-color: #21384C;
   width: 100vw;
-
 }
-
 #layout-footer .footer-wrapper{
   padding: 30px 40px;
-  
 }
-
 #layout-footer .xbook-logo{
   width: 50px;
   margin-bottom: 20px;
 }
-
 #layout-footer .footer-title{
   color: white;
   font-size: 1.2rem;
 }
-
 #layout-footer .followus-container img{
   width: 20px;
   margin: 0 10px;
   margin-bottom: 10px;
 }
-
 #layout-footer .footer-text{
   color: white;
   font-style: italic;
   font-weight: 300;
-
 }
-
 #layout-footer .aboutus-container .footer-text:hover{
   color:#f5f1d1;
-  
-
 }
-
-
-
-
-
 /*-----------------LIBRARY--------------------------------------------*/
 #library-bg-wrapper{
   /* background-color: rgba(241,245,244,.4); */
   padding-top: 10px;
 }
-
-
-
 /*------- Horizontal Scroll------- */
 #title-wrapper{
-
   width: 90vw;
   position: relative;
   margin: auto;
 }
 #title-wrapper h2{
-
 }
 #title-wrapper p{
   margin-top: 20px;
@@ -249,7 +306,6 @@ a.splash {
   flex-direction: row;
   overflow-x: scroll;
   scroll-snap-type: x proximity;
-  
 }
 #horizontal-scroll ul {
   list-style: none;
@@ -263,7 +319,6 @@ a.splash {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
   background: #fff;
 }
 #horizontal-scroll ::-webkit-scrollbar {
@@ -277,17 +332,13 @@ a.splash {
   color: #21384C;
   margin: 0 13px;
   font-weight: 300;
-  
 }
-
 /* #horizontal-scroll .card-title:hover{
   color: #1D3449;
 } */
 #horizontal-scroll .card-title:nth-child(1){
   margin-left:0px;
 }
-
-
 /*------- books------- */
 #library-books{
   background-color: rgba(241,245,244,.4);
@@ -295,12 +346,9 @@ a.splash {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-
-  
 }
 #library-books .book{
   width: 40vw;
-  
   margin: 5vw;
 }
 #library-books .image-cover{
@@ -344,7 +392,6 @@ a.splash {
   margin-bottom: 3px;
   color: #21384C;
 }
-
 #library-books .book-visit{
   display: table;
   width: 100%;
@@ -363,10 +410,7 @@ a.splash {
   text-decoration: none;
   font-weight: 300;
 }
-
-
 /*-----------------AddBook & UpdateProfile--------------------------------------------*/
-
 /*-------------UpdateProfile---------------*/
 #update-profile-form{
   width: 80vw;
@@ -384,12 +428,9 @@ a.splash {
   box-shadow: 2px 2px #FFCECE;
   height: 40px;
   width: 100%; 
-  
   margin: 50px 0;
   font-weight: 500;
-
 }
-
 #update-profile-form .btn:hover{
   color:#FFCECE ;
 }
@@ -402,7 +443,6 @@ a.splash {
 #update-profile-form .custom-file-label{
   font-weight: 400;
 }
-
 /*-------------UpdateProfile---------------*/
 #add-book-form{
   width: 80vw;
@@ -420,12 +460,9 @@ a.splash {
   box-shadow: 2px 2px #FFCECE;
   height: 40px;
   width: 100%; 
-  
   margin: 50px 0;
   font-weight: 500;
-
 }
-
 #add-book-form .btn:hover{
   color:#FFCECE ;
 }
@@ -441,9 +478,6 @@ a.splash {
 #add-book-form .different-label{
   padding-top: 15px;
 }
-
-
-
 /*-----------------Error--------------------------------------------*/
 
 
@@ -452,6 +486,11 @@ a.splash {
 
 
 
+
+
+
+
+Send a message to Juliane Huber
 
 
 
