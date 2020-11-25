@@ -6,7 +6,7 @@ function Layout(props) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title> {props.title ? props.title : "My App"} </title>
         <link
           rel="stylesheet"
@@ -18,7 +18,7 @@ function Layout(props) {
       </head>
 
       <body>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="layout-nav" className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
             <img src="" />
           </a>
@@ -55,7 +55,7 @@ function Layout(props) {
         </nav>
         {props.children}
 
-        <footer>
+        <footer id="layout-footer">
           <div className="footer-wrapper">
             <img src="" />
             <a>About</a>

@@ -11,7 +11,7 @@ function Library(props) {
       {console.log("propstesting", props.username)}
       <h2>Library</h2>
       <p>Check out different categories</p>
-      <div class="horizontal-scroll">
+      <div id="horizontal-scroll">
         <ul class="hs">
           <li class="item">
             <div id="firstCard">
@@ -63,28 +63,28 @@ function Library(props) {
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Thriller" class="card-title">
                 Thriller
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Paranormal" class="card-title">
                 Paranormal
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Fiction" class="card-title">
                 Fiction
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a
                 href="/books/library/category/Science Fiction"
                 class="card-title"
@@ -94,77 +94,77 @@ function Library(props) {
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Memoir" class="card-title">
                 Memoir
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Cooking" class="card-title">
                 Cooking
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Art" class="card-title">
                 Art
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Personal" class="card-title">
                 Personal
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Development" class="card-title">
                 Development
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Motivational" class="card-title">
                 Motivational
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Health" class="card-title">
                 Health
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/History" class="card-title">
                 History
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Travel" class="card-title">
                 Travel
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Guide" class="card-title">
                 Guide
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a
                 href="/books/library/category/Relationships"
                 class="card-title"
@@ -174,28 +174,28 @@ function Library(props) {
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Humor" class="card-title">
                 Humor
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Children" class="card-title">
                 Children
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Comic" class="card-title">
                 Comic
               </a>
             </div>
           </li>
           <li class="item">
-            <div id="firstCard">
+            <div>
               <a href="/books/library/category/Other" class="card-title">
                 Other
               </a>
@@ -203,8 +203,8 @@ function Library(props) {
           </li>
         </ul>
 
-        <div>
-          {props.categoryBooks
+        <div id="library-books">
+          {props.categoryBooks 
             ? props.categoryBooks.map((Book) => {
                 return (
                   <div className="book">
