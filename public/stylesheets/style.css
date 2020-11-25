@@ -66,10 +66,9 @@ a.splash {
 }
 
 .image-cover-small {
-  width: 40px;
-  height: 40px; 
+  width: 50px;
   object-fit:cover;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 
 #profileSection {
@@ -145,6 +144,44 @@ a.splash {
   margin: 10px;
 }
 
+.headlineprofile{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+#addbookicon{
+  height: 50px;
+}
+
+.iconbookupload{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dot {
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+#confirmrequest { 
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  background-color: #21384C;
+}
+
+.confirmationbox {
+  display: flex; 
+  align-items: center;
+}
 /*-----------------Layout--------------------------------------------*/
 
 

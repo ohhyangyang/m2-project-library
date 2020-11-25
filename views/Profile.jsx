@@ -58,11 +58,11 @@ function Profile(props) {
         </div>
       </div>
 
-      <h3>
+      <div class="headlineprofile">
         {props.messagesUnseen && props.messagesUnseen.length >= 1
           ? "The following books have been approved for borrowing"
           : null}
-      </h3>
+      </div>
       <div className="user-library container">
         {props.messagesUnseen
           ? props.messagesUnseen.map((message, i) => {
@@ -78,27 +78,29 @@ function Profile(props) {
           : null}
       </div>
 
-      <p class="headlineprofile">
+
+      <div className="user-library container alert alert-secondary" role="alert">
+        <div>
+        {/*<div class="headlineprofile">
         {props.booksOwnedbyTheUser && props.booksOwnedbyTheUser.length >= 1
           ? "Open requests from other users"
           : null}
-      </p>
-      <div className="user-library container">
-        <div>
+      </div>*/}
+ 
           {props.booksOwnedbyTheUser
             ? props.booksOwnedbyTheUser.map((book, i) => {
                 return (
                   <div key={i}>
+                  <div>Do you want to lend this book?</div>
                   <div class="book-info container">
                   <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
                   <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
                   </div>
-                  <div>
-                    <div>Do you want to lend this book?</div>
+                  <div class="container confirmationbox">
                     <form
                       action={`/private/profile/${props.session.username}/${book._id}`}
                       method="POST"
-                    >
+                    ><div>
                       <input
                         type="radio"
                         id="yes"
@@ -115,20 +117,23 @@ function Profile(props) {
                         />
                       </label>
                       <label for="no">No</label>
-                      <button className="btn" type="submit">
-                        Submit
+                      </div>
+                      <div>
+                      <button id="confirmrequest" type="submit">
+                        Send
                       </button>
+                      </div>
                     </form>
                     </div>
-                  </div>
+                    </div>
                 );
               })
             : null}
         </div>
       </div>
 
-      <p class="headlineprofile">
-      {props.userLibrary ? "Your library" : null}</p>
+      <div class="headlineprofile">
+      {props.userLibrary ? "Your books" : null}</div>
       <div className="user-library container">
         {props.userLibrary.map((book, i) => {
           return (
@@ -149,9 +154,9 @@ function Profile(props) {
         })}
       </div>
 
-      <p class="headlineprofile">
-        {props.borrowedLibrary.length > 1 ? "Your borrowed library" : null}
-      </p>
+      <div class="headlineprofile">
+        {props.borrowedLibrary.length > 1 ? "Your borrowed books" : null}
+      </div>
       <div className="user-library container">
         {props.borrowedLibrary.map((book, i) => {
           return (
