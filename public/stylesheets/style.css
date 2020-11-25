@@ -1,14 +1,16 @@
 
 
 /* Mobile first, we start from the smallest viewport width */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 body {
   
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Roboto"
 }
 
 a {
-  color: #00B7FF;
+  font: 14px "Roboto";
+  text-decoration: none;
+  color: black
 }
 
 /* Horizontal Scroll */
@@ -76,6 +78,10 @@ ul {
   height: 80px; 
 }
 
+.delete-icon {
+  height: 20px;
+}
+
 /*-----------------LIBRARY----------------------*/
 
 .image-cover {
@@ -83,18 +89,20 @@ ul {
 }
 
 h1 {
-  color: white
+  font-family: "Roboto";
+  color: black; 
+  font-size: 36px
 }
 
 p {
-  color: white
+  color: black
 }
 
 /*-----------------SPLASHSCREEN----------------------*/
 
 
 #splashscreen {
-  background-color: #21384C;
+  background-color: #1D3449;
 }
 
 a.splash {
@@ -104,13 +112,23 @@ a.splash {
 .btn {
   color: black;
   background-color: #FFCECE;
-  height: 40px;
+  height: 30px;
   width: 300px; 
   border-color: #FFCECE ;
+  margin: 10px;
 }
 
+/*-----------------INPUT BOX----------------------*/
 
+input[type=text] {
+  border: none;
+  border-bottom:1px solid #1D3449;
+}
 
+input[type=password] {
+  border: none;
+  border-bottom:1px solid #1D3449;
+}
 
 
 

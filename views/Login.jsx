@@ -6,13 +6,13 @@ function Login(props) {
     <Layout title="Login" isLoggedIn = {props.userIsLoggedIn}>
       <form action="/auth/login" method="POST">
         <label>Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" placeholder="username" />
         <br />
         <label>Password:</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" placeholder="password"/>
 
         <br />
-        <button className="account-button" type="submit">
+        <button className="btn" type="submit">
           LOG IN
         </button>
         {props.errorMessage ? <div>{props.errorMessage}</div> : null}

@@ -6,18 +6,18 @@ function Signup(props) {
     <Layout title="Signup" isLoggedIn = {props.userIsLoggedIn}>
       <form action="/auth/signup" method="POST">
         <label>Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" placeholder="username" />
         <br />
         <label>Email:</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" placeholder="email" />
         <br />
         <label>Password:</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" placeholder="password"/>
         <br />
         <label>Repeat password:</label>
-        <input type="password" name="repeatPassword" />
+        <input type="password" name="repeatPassword" placeholder="repeatPassword" />
         <br />
-        <button className="account-button" type="submit">
+        <button className="btn" type="submit">
           SIGN UP
         </button>
         
