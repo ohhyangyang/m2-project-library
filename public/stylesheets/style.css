@@ -13,6 +13,12 @@ a {
   color: black
 }
 
+a:hover{
+  color: black;
+  text-decoration: none
+
+}
+
 /* Horizontal Scroll */
 
 .horizontal-scroll {
@@ -120,7 +126,7 @@ a.splash {
 
 /*-----------------INPUT BOX----------------------*/
 
-input[type=text] {
+/*input[type=text] {
   border: none;
   border-bottom:1px solid #1D3449;
 }
@@ -128,7 +134,7 @@ input[type=text] {
 input[type=password] {
   border: none;
   border-bottom:1px solid #1D3449;
-}
+}*/
 
 
 

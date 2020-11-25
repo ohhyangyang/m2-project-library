@@ -5,22 +5,20 @@ function Login(props) {
   return (
     <Layout title="Login" isLoggedIn = {props.userIsLoggedIn}>
       <form action="/auth/login" method="POST">
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="username" />
-        <br />
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="password"/>
-
-        <br />
-        <button className="btn" type="submit">
-          LOG IN
-        </button>
-        {props.errorMessage ? <div>{props.errorMessage}</div> : null}
-      </form>
-      <p>
-        Don't have an account?<a href="/auth/signup">Sign up</a>
-      </p>
-    </Layout>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" />
+  </div>
+  
+  <button type="submit" class="btn btn-primary">LOG IN</button>
+  {props.errorMessage ? <div>{props.errorMessage}</div> : null}
+</form>  
+<p>Don't have an account?<a href="/auth/signup">Sign up</a></p>
+</Layout>
   );
 }
 
