@@ -7,18 +7,56 @@ body {
   font: 14px "Roboto"
 }
 
-a {
-  font: 14px "Roboto";
-  text-decoration: none;
-  color: black
+
+/*-----------------Login & Signup PAGE-------------------------------------*/
+
+
+/*-----------------ABOUT PAGE-------------------------------------*/
+
+/*-----------------HOME----------------------------------------------*/
+
+
+#splashscreen {
+  background-color: #1D3449;
 }
 
-a:hover{
+a.splash {
+  color:white;
+}
+
+.btn {
   color: black;
-  text-decoration: none
-
+  background-color: #FFCECE;
+  height: 30px;
+  width: 300px; 
+  border-color: #FFCECE ;
+  margin: 10px;
 }
 
+/*-----------------PROFILE PAGE-------------------------------------*/
+
+#profilePicture {
+  height: 80px; 
+}
+
+.delete-icon {
+  height: 20px;
+}
+
+#profilepicture {
+  border-radius: 50%;
+  width:90px;
+  height:90px;
+  object-fit:cover;
+}
+
+/*-----------------Layout--------------------------------------------*/
+
+
+
+
+
+/*-----------------LIBRARY--------------------------------------------*/
 /* Horizontal Scroll */
 
 .horizontal-scroll {
@@ -71,73 +109,24 @@ ul {
   width: 0px;
 }
 
-#profilepicture {
-  border-radius: 50%;
-  width:90px;
-  height:90px;
-  object-fit:cover;
-}
-
-/*-----------------PROFILE PAGE----------------------*/
-
-#profilePicture {
-  height: 80px; 
-}
-
-.delete-icon {
-  height: 20px;
-}
-
-/*-----------------LIBRARY----------------------*/
-
-.image-cover {
-  height: 180px
-}
-
-h1 {
-  font-family: "Roboto";
-  color: black; 
-  font-size: 36px
-}
-
-p {
-  color: black
-}
-
-/*-----------------SPLASHSCREEN----------------------*/
-
-
-#splashscreen {
-  background-color: #1D3449;
-}
-
-a.splash {
-  color:white;
-}
-
-.btn {
-  color: black;
-  background-color: #FFCECE;
-  height: 30px;
-  width: 300px; 
-  border-color: #FFCECE ;
-  margin: 10px;
-}
-
-/*-----------------INPUT BOX----------------------*/
-
-/*input[type=text] {
-  border: none;
-  border-bottom:1px solid #1D3449;
-}
-
-input[type=password] {
-  border: none;
-  border-bottom:1px solid #1D3449;
-}*/
+/*-----------------AddBook & EditProfile--------------------------------------------*/
 
 
 
 
-/*-----------------FOOTER----------------------*/
+
+
+/*-----------------Error--------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
 
