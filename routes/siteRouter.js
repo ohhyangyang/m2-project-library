@@ -8,7 +8,6 @@ siteRouter.get('/',(req,res,next)=>{
 
 siteRouter.get("/about", (req, res, next) => {
     const session = req.session.currentUser;
-  
     const userIsLoggedIn = Boolean(req.session.currentUser)
     const props = {userIsLoggedIn,session,username:session.username}
 
