@@ -33,6 +33,15 @@ a.splash {
   margin: 10px;
 }
 
+.btn:hover {
+  color: black;
+  background-color: #FFCECE;
+  height: 30px;
+  width: 300px; 
+  border-color: #FFCECE ;
+  margin: 10px;
+}
+
 /*-----------------PROFILE PAGE-------------------------------------*/
 
 #profilePicture {
@@ -48,6 +57,24 @@ a.splash {
   width:90px;
   height:90px;
   object-fit:cover;
+}
+
+.image-cover{
+  height: 100px
+}
+
+#profileSection {
+  display:flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.user-library {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /*-----------------Layout--------------------------------------------*/
