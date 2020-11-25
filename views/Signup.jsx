@@ -4,7 +4,8 @@ const Layout = require("./Layout");
 function Signup(props) {
   return (
     <Layout title="Signup" isLoggedIn = {props.userIsLoggedIn}>
-    <form action="/auth/signup" method="POST">
+    <form action="/auth/signup" method="POST" id="signup-form">
+    <h2>SIGN UP HERE</h2>
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
     <input type="text" name="username" class="form-control" id="exampleInputusername" aria-describedby="emailHelp"/>
@@ -24,9 +25,11 @@ function Signup(props) {
     <label for="exampleInputEmail1">Repeat Password</label>
     <input type="password" name="repeatPassword" class="form-control" id="exampleInputusername" aria-describedby="emailHelp"/>
   </div>
-  
+
+  {props.errorMessage ? <div className="error-message">{props.errorMessage}</div> : null}
   <button type="submit" class="btn btn-primary">SIGN UP</button>
-  {props.errorMessage ? <div>{props.errorMessage}</div> : null}
+
+  
 </form>  
       
     </Layout>

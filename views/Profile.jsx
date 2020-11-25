@@ -63,17 +63,15 @@ function Profile(props) {
                         name="statusBorrowed"
                         value="yes"
                       />
-                      <label for="yes">Yes
+                      <label for="yes">Yes</label>
                       <input
                         type="radio"
                         id="no"
                         name="statusBorrowed"
                         value="no"
                       />
-                      </label>
                       <label for="no">No</label>
-                      <br />
-                      <button className="btn" type="submit">
+                      <button className="account-button" type="submit">
                         Submit
                       </button>
                     </form>
@@ -92,7 +90,7 @@ function Profile(props) {
                 <img src={book.imageURL} className="image-cover" />
                 <p>{book.title}</p>
                 <p>{book.author}</p>
-                <a href={`/books/delete/${book._id}`}><img className="delete-icon" src="/images/recycle-bin.png"/>DELETE BOOK</a>
+                <a href={`/books/delete/${book._id}`}>DELETE BOOK</a>
               </p>
               
             );
@@ -107,8 +105,7 @@ function Profile(props) {
             return (
               <p key={i}>
                 <img src={book.imageURL} className="image-cover" />
-                <p>{book.title}</p> 
-                <p>{book.author}</p>
+                {book.title} {book.author}
               </p>
             );
           })}

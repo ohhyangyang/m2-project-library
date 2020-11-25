@@ -10,6 +10,106 @@ body {
 
 /*-----------------Login & Signup PAGE-------------------------------------*/
 
+/*-----------LOGIN-------------*/
+#login-form{
+  width: 80vw;
+  margin: auto;
+}
+#login-form h2{
+  margin: 10px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+#login-form .book{
+  text-align: center;
+  font-size: 2rem;
+}
+#login-form .btn {
+  color: gray;
+  border: 1px #FFCECE solid;
+  background-color: rgba(241,245,244,.4);
+  box-shadow: 2px 2px #FFCECE;
+  height: 40px;
+  width: 100%; 
+  
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+  font-weight: 500;
+
+}
+
+#login-form .btn:hover{
+  color:#FFCECE ;
+}
+#login-form input{
+  background-color: rgba(241,245,244,.4);
+}
+#login-form label{
+  font-weight: 300;
+}
+#login-form .custom-file-label{
+  font-weight: 400;
+}
+#login-form .different-label{
+  padding-top: 15px;
+}
+#login-form .error-message{
+  color:#FFCECE ;
+  font-style: italic;
+}
+#login-form .signup-here{
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin-bottom: 50px;
+
+}
+#login-form .signup-here>a{
+  color: #FFCECE;
+}
+/*--------------signup------------*/
+#signup-form{
+  width: 80vw;
+  margin: auto;
+}
+#signup-form h2{
+  margin: 20px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+#signup-form .btn {
+  color: gray;
+  border: 1px #FFCECE solid;
+  background-color: rgba(241,245,244,.4);
+  box-shadow: 2px 2px #FFCECE;
+  height: 40px;
+  width: 100%; 
+  
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-weight: 500;
+
+}
+#signup-form .error-message{
+  color:#FFCECE ;
+  font-style: italic;
+}
+#signup-form .btn:hover{
+  color:#FFCECE ;
+}
+#signup-form input{
+  background-color: rgba(241,245,244,.4);
+}
+#signup-form label{
+  font-weight: 300;
+}
+#signup-form .custom-file-label{
+  font-weight: 400;
+}
+#signup-form .different-label{
+  padding-top: 15px;
+}
+
 
 /*-----------------ABOUT PAGE-------------------------------------*/
 
@@ -24,14 +124,6 @@ a.splash {
   color:white;
 }
 
-.btn {
-  color: black;
-  background-color: #FFCECE;
-  height: 30px;
-  width: 300px; 
-  border-color: #FFCECE ;
-  margin: 10px;
-}
 
 /*-----------------PROFILE PAGE-------------------------------------*/
 
@@ -53,6 +145,7 @@ a.splash {
 /*-----------------Layout--------------------------------------------*/
 #layout-nav{
   background-color: #f5f1d1;
+  border-bottom: 0.2px rgba(0,0,0,.1) solid;
 }
 #layout-nav nav-link:hover{
   color: #21384C; 
@@ -98,6 +191,7 @@ a.splash {
 #layout-footer .footer-text{
   color: white;
   font-style: italic;
+  font-weight: 300;
 
 }
 
@@ -112,70 +206,241 @@ a.splash {
 
 
 /*-----------------LIBRARY--------------------------------------------*/
+#library-bg-wrapper{
+  /* background-color: rgba(241,245,244,.4); */
+  padding-top: 10px;
+}
+
 
 
 /*------- Horizontal Scroll------- */
+#title-wrapper{
 
-#horizontal-scroll {
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  /*margin-top: 0.5rem;
-  margin-bottom: 0.5rem;*/
+  width: 90vw;
+  position: relative;
+  margin: auto;
 }
+#title-wrapper h2{
 
+}
+#title-wrapper p{
+  margin-top: 20px;
+  font-weight: 500;
+  /* color: gray; */
+  margin-bottom: 10px;
+  /* text-align:center; */
+  font-size: 0.2rem;
+  width: 90vw;
+}
+#horizontal-scroll{
+  width: 90vw;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 5px;
+  padding-top: 15px;
+  background-color: white;
+  /* border-radius: 5px; */
+  /* border: 0.2px rgba(0,0,0,.05) solid; */
+  /* box-shadow: 2px 2px #FFCECE; */
+}
 #horizontal-scroll .hs {
   display: flex;
+  justify-content: flex-start;
   flex-direction: row;
-  padding: 0 2px;
-
   overflow-x: scroll;
   scroll-snap-type: x proximity;
+  
 }
-
 #horizontal-scroll ul {
   list-style: none;
-  padding: 0;
+  padding-inline-start: 0px;
+  margin-bottom:0;
 }
-
 #horizontal-scroll .hs>li,
 #horizontal-scroll .item {
   scroll-snap-align: center;
-  /* margin-right: 1rem; */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  
   background: #fff;
-  border-radius: 8px;
 }
-
-#horizontal-scroll .hs>li {
-  background-color: var(--red-block);
-  min-height: 2rem;
-  min-width: 10rem;
-  color: black;
-  /* padding: 1rem; */
-}
-
-#horizontal-scroll .card-title {
-  font-size: 1.2rem;
-}
-
 #horizontal-scroll ::-webkit-scrollbar {
   width: 0px;
+}
+#horizontal-scroll a:hover{
+  text-decoration: none;
+  font-weight: 400;
+}
+#horizontal-scroll .card-title{
+  color: #21384C;
+  margin: 0 13px;
+  font-weight: 300;
+  
+}
+
+/* #horizontal-scroll .card-title:hover{
+  color: #1D3449;
+} */
+#horizontal-scroll .card-title:nth-child(1){
+  margin-left:0px;
 }
 
 
 /*------- books------- */
+#library-books{
+  background-color: rgba(241,245,244,.4);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  
+}
+#library-books .book{
+  width: 40vw;
+  
+  margin: 5vw;
+}
 #library-books .image-cover{
-  width: 80vw;
+  width: 40vw;
+  height: 60vw;
+  /* box-shadow: 3px 3px rgba(250, 57, 29, 0.8); */
+}
+#library-books .book-title{
+  font-weight: 400;
+  margin:8px 0;
+}
+#library-books .book-rating{
+  font-weight: 300;
+  margin: 0;
+}
+#library-books .book-author{
+  font-weight: 300;
+  font-size: 0.5rem;
+  margin: 0;
+}
+#library-books .author-rating-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#library-books .title-author-rating-wrapper{
+  height: 60px;
+}
+#library-books .book-borrow{
+  display: table;
+  width: 100%;
+  background-color: white;
+  box-shadow: 2px 2px #FFCECE;
+  color: #21384C;
+  font-weight: 200;
+  padding: 2px;
+  font-size: 0.5rem;
+  /* border-radius: 2px; */
+  text-align: center;
+  margin-bottom: 3px;
+  color: #21384C;
 }
 
-/*-----------------AddBook & EditProfile--------------------------------------------*/
+#library-books .book-visit{
+  display: table;
+  width: 100%;
+  background-color: white;
+  box-shadow: 2px 2px #FFCECE;
+  color: #21384C;
+  font-weight: 200;
+  padding: 2px;
+  font-size: 0.5rem;
+  /* border-radius: 2px; */
+  text-align: center;
+  margin-bottom: 3px;
+  color: #21384C;
+}
+#library-books a:hover{
+  text-decoration: none;
+  font-weight: 300;
+}
 
 
+/*-----------------AddBook & UpdateProfile--------------------------------------------*/
 
+/*-------------UpdateProfile---------------*/
+#update-profile-form{
+  width: 80vw;
+  margin: auto;
+}
+#update-profile-form h2{
+  margin: 20px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+#update-profile-form .btn {
+  color: gray;
+  border: 1px #FFCECE solid;
+  background-color: rgba(241,245,244,.4);
+  box-shadow: 2px 2px #FFCECE;
+  height: 40px;
+  width: 100%; 
+  
+  margin: 50px 0;
+  font-weight: 500;
+
+}
+
+#update-profile-form .btn:hover{
+  color:#FFCECE ;
+}
+#update-profile-form input{
+  background-color: rgba(241,245,244,.4);
+}
+#update-profile-form label{
+  font-weight: 300;
+}
+#update-profile-form .custom-file-label{
+  font-weight: 400;
+}
+
+/*-------------UpdateProfile---------------*/
+#add-book-form{
+  width: 80vw;
+  margin: auto;
+}
+#add-book-form h2{
+  margin: 20px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+#add-book-form .btn {
+  color: gray;
+  border: 1px #FFCECE solid;
+  background-color: rgba(241,245,244,.4);
+  box-shadow: 2px 2px #FFCECE;
+  height: 40px;
+  width: 100%; 
+  
+  margin: 50px 0;
+  font-weight: 500;
+
+}
+
+#add-book-form .btn:hover{
+  color:#FFCECE ;
+}
+#add-book-form input{
+  background-color: rgba(241,245,244,.4);
+}
+#add-book-form label{
+  font-weight: 300;
+}
+#add-book-form .custom-file-label{
+  font-weight: 400;
+}
+#add-book-form .different-label{
+  padding-top: 15px;
+}
 
 
 

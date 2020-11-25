@@ -161,4 +161,4 @@ Deploy: https://x-book.herokuapp.com/
 
 ## Slides
 
-WIP
+Presentation: https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit#slide=id.gad4c381f73_0_7
