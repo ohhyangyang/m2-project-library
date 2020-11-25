@@ -23,10 +23,10 @@ function Home(props) {
       <img src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606229899/book-x-images/book_splash_nbjabk.gif" />
       <br />
       <br />
-      <a class="btn btn-info" href="/auth/login" role="button">Log In</a>
+      <a class="btn btn-info" href="/auth/login" role="button">LOG IN</a>
 
 <br />
-<a class="btn btn-info" href="/auth/signup" role="button">Sign up</a>
+<a class="btn btn-info" href="/auth/signup" role="button">SIGN UP</a>
     </div>
     <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
