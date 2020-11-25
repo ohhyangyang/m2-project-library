@@ -48,7 +48,7 @@ authRouter.post("/signup", (req, res, next) => {
   }
   User.findOne({ username })
     .then((user) => {
-      console.log(user);
+   
       if (user) {
         const props = { errorMessage: "The username already exists" };
         res.render("Signup", props);
@@ -63,11 +63,11 @@ authRouter.post("/signup", (req, res, next) => {
           res.redirect("/auth/login");
         })
         .catch((err) => {
-          console.log(err);
+        console.log(err)
         });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err)
     });
 });
 
@@ -75,8 +75,7 @@ authRouter.post("/signup", (req, res, next) => {
 authRouter.get("/login", (req, res, next) => {
   const session = req.session.currentUser;
     const userIsLoggedIn = Boolean(req.session.currentUser)
-    console.log("req.session.currentUser", req.session.currentUser)
-    console.log(userIsLoggedIn)
+
     const props = {session, userIsLoggedIn}
   res.render("Login", props);
 });
@@ -104,9 +103,9 @@ authRouter.post('/login', (req,res,next) => {
     if(passwordCorrect){
         req.session.currentUser=user;
         // Current user with details
-        console.log("req.session.currentUser", req.session.currentUser);
+
         // Boolean --> logged in: TRUE
-        console.log("req.session.currentUser",Boolean(req.session.currentUser))
+       
         res.redirect(`/private/profile/${req.session.currentUser.username}`);
     }else{
         const props = { errorMessage: "Incorrect password" };
@@ -119,7 +118,7 @@ authRouter.post('/login', (req,res,next) => {
 // GET /auth/logout
 authRouter.get('/logout', isLoggedIn, (req,res,next)=>{
     req.session.destroy((err)=>{
-      console.log("req.session", req.session )
+
         if(err){
             res.redirect('/error')
         }

@@ -1,120 +1,169 @@
 const { PromiseProvider } = require("mongoose");
 const React = require("react");
 const Layout = require("./Layout");
-
 function Profile(props) {
   return (
-    <Layout title="Profile" isLoggedIn={props.userIsLoggedIn} username={props.username} >
+    <Layout
+      title="Profile"
+      isLoggedIn={props.userIsLoggedIn}
+      username={props.username}
+    >
       <div id="profileSection">
-  
-        <img id="profilepicture" src={props.visitedUser.imageURL?(props.visitedUser.imageURL):(props.session.imageURL)}/>
-        <h3>{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}</h3>
-        <p>
-          {props.userLibrary.length <= 1
-            ? `${props.userLibrary.length} book`
-            : `${props.userLibrary.length} books`}
-        </p>
-        <p>
-        {props.borrowedLibrary.length <= 1
-            ? `${props.borrowedLibrary.length} borrowed book`
-            : `${props.borrowedLibrary.length} borrowed books`}  
-        </p>
-        <p>{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}</p>
-        <p>{props.visitedUser.description ? props.visitedUser.description : props.session.description}</p>
-        
-        <a href="/private/edit-profile">{(!props.visitedUser.imageURL)?"EDIT PROFILE":null}</a>
-        <br />
-        <a href="/books/add">{(!props.visitedUser.imageURL)?"ADD BOOK":null}</a>
-      </div>
-       
-        <div id="approvedBookRequests">
-          <p>{props.messagesUnseen && props.messagesUnseen.length >= 1 ? "The following books have been approved for borrowing" : null}</p>
-          {props.messagesUnseen
-            ? props.messagesUnseen.map((message, i) => {
-                return (
-                  <li key={i}>
-                    {message.content}
-                    <a href={`/private/profile/message/${message._id}/${i}`}>
-                      I got it
-                    </a>
-                  </li>
-                );
-              })
-            : null}
-        </div>
-
-      <div id="booksRequestedFromUsers">
-      <p>{props.booksOwnedbyTheUser && props.booksOwnedbyTheUser.length >= 1 ? "Do you want to lend this book?" : null}</p>
         <div>
+          <img
+            id="profilepicture"
+            src={
+              props.visitedUser.imageURL
+                ? props.visitedUser.imageURL
+                : props.session.imageURL
+            }
+          />
+          {/*{props.visitedUser.username?(props.visitedUser.username):(props.session.username)}*/}
+        </div>
+        <div>
+        {props.userLibrary.length <= 1
+            ? <div><div className="number">{props.userLibrary.length}</div> book</div>
+            : <div><div className="number">{props.userLibrary.length}</div> books</div>}
+        </div>
+        <div>
+          {props.borrowedLibrary.length <= 1
+            ? <div><div className="number" >{props.borrowedLibrary.length} </div> book </div>
+            : <div><div className="number">{props.borrowedLibrary.length} </div> books borrowed</div>}
+        </div>
+      </div>
+      <div id="profileInfo">
+        <div>
+          {props.visitedUser.username
+            ? props.visitedUser.username
+            : props.session.username}
+        </div>
+        <div>
+          📚📚📚
+          {props.visitedUser.description
+            ? props.visitedUser.description
+            : props.session.description}
+        </div>
+      </div>
+      <div id="profilebuttons container" class="row">
+        <div class="col-xs-6 linkprofile">
+          <a href="/private/edit-profile" class="btn btn-info">
+            {!props.visitedUser.imageURL ? "Edit profile" : null}
+          </a>
+        </div>
+        <div class="col-xs-6 linkprofile">
+          <a href="/books/add" class="btn btn-info">
+            {!props.visitedUser.imageURL ? "Add book" : null}
+          </a>
+        </div>
+      </div>
+      <div class="headlineprofile">
+        {props.messagesUnseen && props.messagesUnseen.length >= 1
+          ? "The following books have been approved for borrowing"
+          : null}
+      </div>
+      <div className="user-library container">
+        {props.messagesUnseen
+          ? props.messagesUnseen.map((message, i) => {
+              return (
+                <li key={i}>
+                  {message.content}
+                  <a href={`/private/profile/message/${message._id}/${i}`}>
+                    I got it
+                  </a>
+                </li>
+              );
+            })
+          : null}
+      </div>
+      <div className="user-library container alert alert-secondary" role="alert">
+        <div>
+        {/*<div class="headlineprofile">
+        {props.booksOwnedbyTheUser && props.booksOwnedbyTheUser.length >= 1
+          ? "Open requests from other users"
+          : null}
+      </div>*/}
           {props.booksOwnedbyTheUser
             ? props.booksOwnedbyTheUser.map((book, i) => {
                 return (
-                  <p key={i}>
-                    <img src={book.imageURL} className="image-cover" />
-                    {book.title} {book.author}
-                    <label>Do I want to lend this book:</label>
+                  <div key={i}>
+                  <div>Do you want to lend this book?</div>
+                  <div class="book-info container">
+                  <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+                  </div>
+                  <div class="container confirmationbox">
                     <form
                       action={`/private/profile/${props.session.username}/${book._id}`}
                       method="POST"
-                    >
+                    ><div>
                       <input
                         type="radio"
                         id="yes"
                         name="statusBorrowed"
                         value="yes"
                       />
-                      <label for="yes">Yes</label>
-                      <input
-                        type="radio"
-                        id="no"
-                        name="statusBorrowed"
-                        value="no"
-                      />
+                      <label for="yes">
+                        Yes
+                        <input
+                          type="radio"
+                          id="no"
+                          name="statusBorrowed"
+                          value="no"
+                        />
+                      </label>
                       <label for="no">No</label>
-                      <button className="account-button" type="submit">
-                        Submit
+                      </div>
+                      <div>
+                      <button id="confirmrequest" type="submit">
+                        Send
                       </button>
+                      </div>
                     </form>
-                  </p>
+                    </div>
+                    </div>
                 );
               })
             : null}
         </div>
-
-
-        <div id="userLibrary">
-          <p>{props.userLibrary ? "Your library" : null}</p>
-          {props.userLibrary.map((book, i) => {
-            return (
-              <p key={i}>
-                <img src={book.imageURL} className="image-cover" />
-                <p>{book.title}</p>
-                <p>{book.author}</p>
-                <a href={`/books/delete/${book._id}`}>DELETE BOOK</a>
-              </p>
-              
-            );
-          })}
-        </div>
-
-        
-
-        <div id="borrowedBooks">
-          <p>{props.borrowedLibrary.length > 1 ? "Your borrowed library" : null}</p>
-          {props.borrowedLibrary.map((book, i) => {
-            return (
-              <p key={i}>
-                <img src={book.imageURL} className="image-cover" />
-                {book.title} {book.author}
-              </p>
-            );
-          })}
-        </div>
+      </div>
+      <div class="headlineprofile">
+      {props.userLibrary ? "Your books" : null}</div>
+      <div className="user-library container">
+        {props.userLibrary.map((book, i) => {
+          return (
+            <div key={i}>
+            <div class="book-info container">
+            <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>,{book.category},Rating:{book.rating}</div>
+            </div>
+              <div class="container delete-book"> 
+              <a href={`/books/delete/${book._id}`}>
+                <img className="delete-icon" src="/images/recycle-bin.png" />
+                Remove book
+              </a>             
+              </div>
+              <hr></hr>
+            </div>
+          );
+        })}
+      </div>
+      <div class="headlineprofile">
+        {props.borrowedLibrary.length > 1 ? "Your borrowed books" : null}
+      </div>
+      <div className="user-library container">
+        {props.borrowedLibrary.map((book, i) => {
+          return (
+            <div key={i}>
+            <div class="book-info container">
+                  <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
+                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+            </div>
+              <hr></hr>
+            </div>
+          );
+        })}
       </div>
     </Layout>
   );
 }
-
 module.exports = Profile;
-
-

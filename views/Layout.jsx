@@ -6,6 +6,7 @@ function Layout(props) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title> {props.title ? props.title : "My App"} </title>
         <link
           rel="stylesheet"
@@ -17,9 +18,9 @@ function Layout(props) {
       </head>
 
       <body>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">
-            <img src="" />
+        <nav id="layout-nav" className="navbar sticky-top navbar-expand-lg navbar-light" >
+          <a className="navbar-brand" href="/books/library">
+            <img className="xbook-logo" src="/images/XBook-logo-02.svg" />
           </a>
           <button
             className="navbar-toggler"
@@ -54,10 +55,29 @@ function Layout(props) {
         </nav>
         {props.children}
 
-        <footer>
+        <footer id="layout-footer">
           <div className="footer-wrapper">
-            <img src="" />
-            <a>About</a>
+            <img className="xbook-logo" src="/images/XBook-logo-07.svg" />
+            <div>
+            <div class="followus-container">
+                    <p class="footer-title">Follow Us</p>
+                    <a href="#"><img src="/images/twitter.png" alt="twitterlogo"/></a>
+                    <a href="#"><img src="/images/instagram.png" alt="instagramlogo"/></a>
+                    <a href="#"><img src="/images/facebook.png" alt="facebooklogo"/></a>
+                </div>
+    
+                <div class="contactus-container">
+                    <p class="footer-title">Contact Us</p>
+                    <p class="footer-text">hello@xbook.com</p>
+    
+                </div>
+    
+                <div class="aboutus-container">
+                    <p class="footer-title">About Us</p>
+                    <a href="/about" class="footer-text">who we are</a>
+                </div>
+            </div>
+            
           </div>
         </footer>
         <script

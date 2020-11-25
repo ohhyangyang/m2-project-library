@@ -1,6 +1,6 @@
-# M2 Project - Yang & Juliane
+# XBook - M2 Project - Yang & Juliane
 
-
+![](https://images.unsplash.com/photo-1549675584-91f19337af3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80)
 
 ## Description
 
@@ -161,4 +161,4 @@ Deploy: https://x-book.herokuapp.com/
 
 ## Slides
 
-WIP
+Presentation: https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit#slide=id.gad4c381f73_0_7
