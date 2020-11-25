@@ -1,7 +1,6 @@
 const { PromiseProvider } = require("mongoose");
 const React = require("react");
 const Layout = require("./Layout");
-
 function Profile(props) {
   return (
     <Layout
@@ -57,7 +56,6 @@ function Profile(props) {
           </a>
         </div>
       </div>
-
       <div class="headlineprofile">
         {props.messagesUnseen && props.messagesUnseen.length >= 1
           ? "The following books have been approved for borrowing"
@@ -77,8 +75,6 @@ function Profile(props) {
             })
           : null}
       </div>
-
-
       <div className="user-library container alert alert-secondary" role="alert">
         <div>
         {/*<div class="headlineprofile">
@@ -86,7 +82,6 @@ function Profile(props) {
           ? "Open requests from other users"
           : null}
       </div>*/}
- 
           {props.booksOwnedbyTheUser
             ? props.booksOwnedbyTheUser.map((book, i) => {
                 return (
@@ -131,7 +126,6 @@ function Profile(props) {
             : null}
         </div>
       </div>
-
       <div class="headlineprofile">
       {props.userLibrary ? "Your books" : null}</div>
       <div className="user-library container">
@@ -153,37 +147,6 @@ function Profile(props) {
           );
         })}
       </div>
-
-<<<<<<< HEAD
-        <div id="userLibrary">
-          <p>{props.userLibrary ? "Your library" : null}</p>
-          {props.userLibrary.map((book, i) => {
-            return (
-              <p key={i}>
-                <img src={book.imageURL} className="image-cover" />
-                <p>{book.title}</p>
-                <p>{book.author}</p>
-                <a href={`/books/delete/${book._id}`}>DELETE BOOK</a>
-              </p>
-              
-            );
-          })}
-        </div>
-
-        
-
-        <div id="borrowedBooks">
-          <p>{props.borrowedLibrary.length > 1 ? "Your borrowed library" : null}</p>
-          {props.borrowedLibrary.map((book, i) => {
-            return (
-              <p key={i}>
-                <img src={book.imageURL} className="image-cover" />
-                {book.title} {book.author}
-              </p>
-            );
-          })}
-        </div>
-=======
       <div class="headlineprofile">
         {props.borrowedLibrary.length > 1 ? "Your borrowed books" : null}
       </div>
@@ -199,10 +162,8 @@ function Profile(props) {
             </div>
           );
         })}
->>>>>>> 5fbc7bec81b4e8be02bdaae4f34359c16423457d
       </div>
     </Layout>
   );
 }
-
 module.exports = Profile;
