@@ -140,7 +140,7 @@ function Profile(props) {
             <div key={i}>
             <div class="book-info container">
             <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
-            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>,{book.category},Rating:{book.rating}</div>
             </div>
               <div class="container delete-book"> 
               <a href={`/books/delete/${book._id}`}>

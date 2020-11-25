@@ -15,9 +15,14 @@ body {
 
 /*-----------------HOME----------------------------------------------*/
 
+#splashscreen-background{
+  background-color: #21384C ;
+}
 
-#splashscreen {
-  background-color: #1D3449;
+#splashscreen { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a.splash {
@@ -42,6 +47,9 @@ a.splash {
   margin: 10px;
 }
 
+#splashimage{
+  width: 100%;
+}
 /*-----------------PROFILE PAGE-------------------------------------*/
 
 #profilePicture {
@@ -84,6 +92,7 @@ a.splash {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: 10px;
 }
 
 .profilebuttons {
@@ -112,7 +121,7 @@ a.splash {
 .number{
   font-family: Roboto;
   font-size: 18px;
-  font-style: bold;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -176,12 +185,14 @@ a.splash {
   display: inline-block;
   font-size: 14px;
   background-color: #21384C;
+  margin-top: 10px;
 }
 
 .confirmationbox {
   display: flex; 
   align-items: center;
 }
+
 /*-----------------Layout--------------------------------------------*/
 
 

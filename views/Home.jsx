@@ -17,18 +17,13 @@ function Home(props) {
         ></link>
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
-      <body>
-    <div id="splashscreen">
-      <h1>X Book</h1>
-      <p>Exchange, borrow and read</p>
-      <img src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606229899/book-x-images/book_splash_nbjabk.gif" />
-      <br />
-      <br />
-      <a class="btn btn-info" href="/auth/login" role="button">LOG IN</a>
-
-<br />
-<a class="btn btn-info" href="/auth/signup" role="button">SIGN UP</a>
-    </div>
+      <body id="splashscreen-background">
+    
+      <img id="splashimage" src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606229899/book-x-images/book_splash_nbjabk.gif" />
+      <div id="splashscreen container">
+      <div><a class="btn btn-primary" href="/auth/login" role="button">LOG IN</a></div>
+      <div><a class="btn btn-primary" href="/auth/signup" role="button">SIGN UP</a></div>
+      </div>
     <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
