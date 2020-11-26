@@ -8,7 +8,7 @@ function Home(props) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title> {props.title ? props.title : "My App"} </title>
+        <title> {props.title ? props.title : "X-Book"} </title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -18,13 +18,29 @@ function Home(props) {
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
       <body id="splashscreen-background">
-    
-      <img id="splashimage" src= "https://res.cloudinary.com/daj2fsogl/image/upload/v1606229899/book-x-images/book_splash_nbjabk.gif" />
-      <div id="splashscreen container">
-      <div><a class="btn btn-primary" href="/auth/login" role="button">LOG IN</a></div>
-      <div><a class="btn btn-primary" href="/auth/signup" role="button">SIGN UP</a></div>
-      </div>
-    <script
+
+        <img id="xbook-logo" src="/images/XBook-logo-complete.svg" />
+        <p>Exchange your books with other readers</p>
+
+        <div id="splashscreen-container">
+        <img
+          id="splashimage"
+          src="https://res.cloudinary.com/daj2fsogl/image/upload/v1606380574/book-x-images/book_splash_screen_ifyezq.gif"
+        />
+
+          <div>
+            <a class="btn" href="/auth/login" role="button">
+              LOG IN
+            </a>
+          </div>
+          <div>
+            <a class="btn" href="/auth/signup" role="button">
+              SIGN UP
+            </a>
+          </div>
+        </div>
+
+        <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
           crossOrigin="anonymous"
