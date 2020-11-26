@@ -58,7 +58,7 @@ function Profile(props) {
       </div>
       <div class="headlineprofile">
         {props.messagesUnseen && props.messagesUnseen.length >= 1
-          ? "The following books have been approved for borrowing"
+          ? "The following books have been approved for borrowing:"
           : null}
       </div>
       <div className="user-library container">
@@ -75,7 +75,7 @@ function Profile(props) {
             })
           : null}
       </div>
-      <div className="user-library container alert alert-secondary" role="alert">
+      <div id="lend-book-box"className="user-library container alert alert-secondary" role="alert">
         <div>
         {/*<div class="headlineprofile">
         {props.booksOwnedbyTheUser && props.booksOwnedbyTheUser.length >= 1
@@ -86,7 +86,7 @@ function Profile(props) {
             ? props.booksOwnedbyTheUser.map((book, i) => {
                 return (
                   <div key={i}>
-                  <div>Do you want to lend this book?</div>
+                  <div className="lend-book-question">Do you want to lend this book?</div>
                   <div class="book-info container">
                   <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
                   <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
@@ -127,14 +127,14 @@ function Profile(props) {
         </div>
       </div>
       <div class="headlineprofile">
-      {props.userLibrary ? "Book library" : null}</div>
+      {props.userLibrary.length >= 1 ? "Book library" : "You have not added any books. Upload books now"}</div>
       <div className="user-library container">
         {props.userLibrary.map((book, i) => {
           return (
             <div key={i}>
             <div class="book-info container">
             <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
-            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>,{book.category},Rating:{book.rating}</div>
+            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>, <br/>{book.category}, <br/>Rating:{book.rating}/5</div>
             </div>
               <div class="container delete-book"> 
               <a href={`/books/delete/${book._id}`}>
