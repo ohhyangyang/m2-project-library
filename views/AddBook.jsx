@@ -69,19 +69,19 @@ function AddBook(props) {
           <option value="Other">Other</option>
         </select>
         <label className="different-label">Choose book cover</label>
-        <div class="custom-file">
+        <div className="custom-file">
           <input
             type="file"
             name="bookcoverimage"
-            class="custom-file-input"
+            className="custom-file-input"
             id="customFile"
           />
-          <label class="custom-file-label" for="customFile">
-            Choose file
+          <label className="custom-file-label" for="customFile">
+            Choose book cover...
           </label>
         </div>
         <label className="different-label">Gift</label>
-        <div class="custom-control custom-radio">
+        <div className="custom-control custom-radio">
           <input
             type="radio"
             id="yes"
@@ -89,7 +89,7 @@ function AddBook(props) {
             value="yes"
             class="custom-control-input"
           />
-          <label class="custom-control-label" for="yes">
+          <label className="custom-control-label" for="yes">
             Yes
           </label>
         </div>

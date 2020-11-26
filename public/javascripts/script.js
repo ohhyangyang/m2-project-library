@@ -7,3 +7,10 @@ categoriesLinks.forEach((link)=>{
         // link.classList.add("selected-category");
     })
 })
+
+//Changing input of file in the Add Book jsx
+document.querySelector(".custom-file-input").addEventListener("change", function(change){
+    let nameOfFile = document.getElementById("customFile").files[0].name;
+    let nextSibling = change.target.nextElementSibling;
+    nextSibling.innerHTML = nameOfFile
+})

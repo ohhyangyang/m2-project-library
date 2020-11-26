@@ -4,15 +4,19 @@ const Layout = require("./Layout");
 
 function UpdateProfile(props) {
   return (
-    <Layout title="Update Profile" isLoggedIn={props.userIsLoggedIn} username={props.username}>
-    {console.log("testing",props.userIsLoggedIn)}
+    <Layout
+      title="Update Profile"
+      isLoggedIn={props.userIsLoggedIn}
+      username={props.username}
+    >
+      {console.log("testing", props.userIsLoggedIn)}
       <form
         action="/private/edit-profile"
         method="POST"
         encType="multipart/form-data"
         id="update-profile-form"
       >
-      <h2>UPDATE PROFILE</h2>
+        <h2>UPDATE PROFILE</h2>
         <div class="form-group">
           <label>Username:</label>
           <input
@@ -26,7 +30,7 @@ function UpdateProfile(props) {
         <div class="form-group">
           <label>Description:</label>
           <input
-            class="form-control"
+            className="form-control"
             type="text"
             name="description"
             defaultValue={props.foundUser.description}
@@ -34,13 +38,17 @@ function UpdateProfile(props) {
         </div>
 
         <label>Update your photo</label>
-        <div class="custom-file">
-          
-          <label class="custom-file-label">Choose file...</label>
-          <input type="file" class="custom-file-input" name="userimage" />
+        <div className="custom-file">
+          <input type="file" 
+          class="custom-file-input" 
+          name="userimage"
+          id="customFile" />
+        
+        <label className="custom-file-label" for="customFile">
+        Choose profile image
+        </label>
         </div>
-
-        <button  class="btn btn-primary" type="submit">
+        <button class="btn btn-primary" type="submit">
           SUBMIT
         </button>
         {props.errorMessage ? <div>{props.errorMessage}</div> : null}
