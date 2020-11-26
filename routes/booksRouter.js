@@ -74,7 +74,7 @@ booksRouter.get("/library/:bookid", (req, res, next) => {
     .then((updatedBook) =>{
   
       // BUTTON HAS TO CHANGE 
-      res.render("Library")
+      res.redirect("/books/library")
     })
     }
   })
