@@ -199,9 +199,10 @@ body {
   object-fit:cover;
 }
 .image-cover-small {
-  width: 50px;
+  width: 20vw;
   object-fit:cover;
-  border-radius: 10%;
+  /* border-radius: 10%; */
+  margin-right: 0.5rem;
 }
 #profileSection {
   display:flex; 
@@ -214,8 +215,14 @@ body {
 .user-library {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 10px;
+  align-items: flex-start;
+  
+  margin-top: 20px;
+}
+
+.user-library>li{
+  margin-left: 20px;
+  font-weight: 300;
 }
 .profilebuttons {
   display: flex;
@@ -248,19 +255,24 @@ body {
 }
 .request-info{
   list-style-type:none;
-  width: 70vw;
-  text-align: center;
+  width: 80vw;
+  color: gray;
+  font-weight: 400;
+ 
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 .request-info>a{
-  color: blue;
+  color: black;
   margin-left: 3px;
+  font-weight: 300;
 }
 .book-info {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-self: flex-start;
+
 }
 .delete-book {
   display: flex;
@@ -296,20 +308,35 @@ body {
   background-color: #bbb;
   border-radius: 50%;
 }
+.lend-book-question{
+  font-weight: 500;
+  /* border-top: gray 1px solid; */
+}
+.user-library>div{
+  width: 90vw;
+}
+#lend-book-box{
+  background-color: #e2e3e5;
+  border-radius: 20px;
+}
 #confirmrequest { 
   border: none;
   color: white;
-  padding: 10px 15px;
+  padding: 8px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
   background-color: #21384C;
   margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
 }
 .confirmationbox {
   display: flex; 
   align-items: center;
+  border-bottom:0.5px white solid ;
+  margin-bottom: 10px;
 }
 
 .btn-info {
@@ -380,8 +407,7 @@ body {
   position: relative;
   margin: auto;
 }
-#title-wrapper h2{
-}
+
 #title-wrapper p{
   margin-top: 20px;
   font-weight: 500;

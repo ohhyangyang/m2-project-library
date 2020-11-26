@@ -216,6 +216,7 @@ function Library(props) {
           </ul>
         </div>
         <div id="library-books">
+       
           {props.categoryBooks
             ? props.categoryBooks.map((Book) => {
                 return (
@@ -240,6 +241,7 @@ function Library(props) {
                   </div>
                 );
               })
+              
             : props.userLibrary.map((Book) => {
                 return (
                   <div className="book">

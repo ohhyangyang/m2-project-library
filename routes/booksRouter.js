@@ -19,6 +19,7 @@ booksRouter.get("/library", (req, res, next) => {
 
     let userLibrary = [];
     findBooks.forEach((book, i) =>{
+      console.log("book",book)
   
     if (book.owner._id != id )  {
    
@@ -26,6 +27,8 @@ booksRouter.get("/library", (req, res, next) => {
     } else { 
     }
     })
+
+    
   const props = {userLibrary: userLibrary, userIsLoggedIn, username:session.username};
 
   res.render("Library", props)

@@ -15,6 +15,7 @@ function Layout(props) {
           crossOrigin="anonymous"
         ></link>
         <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
       </head>
 
       <body>
