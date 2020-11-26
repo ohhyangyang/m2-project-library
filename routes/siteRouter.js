@@ -7,11 +7,11 @@ siteRouter.get('/',(req,res,next)=>{
 })
 
 siteRouter.get("/about", (req, res, next) => {
-    const session = req.session.currentUser;
-    const userIsLoggedIn = Boolean(req.session.currentUser)
-    const props = {userIsLoggedIn,session,username:session.username}
+    // const session = req.session.currentUser;
+    // const userIsLoggedIn = Boolean(req.session.currentUser)
+    // const props = {userIsLoggedIn,session,username:session.username}
 
-    res.render("About", props);
+    res.render("About");
   });
 
 

@@ -38,10 +38,12 @@ booksRouter.get('/library/category/:category',(req,res,next)=>{
   const category = req.params.category;
 
   Book.find({category:category})
+  .populate("owner")
   .then((booksFound)=>{
 
 
     const props = {categoryBooks:booksFound}
+    console.log("props.categoryBooks",props.categoryBooks)
     res.render("Library",props);
   })
 
@@ -77,7 +79,10 @@ booksRouter.get("/library/:bookid", (req, res, next) => {
 
 // GET     /books/add
 booksRouter.get("/add", (req, res, next) => {
-  res.render("AddBook");
+  const userIsLoggedIn = Boolean(req.session.currentUser)
+  const { username } = req.session.currentUser;
+  const props={userIsLoggedIn,username}
+  res.render("AddBook",props);
 });
 
 // POST    /books/add
@@ -129,13 +134,15 @@ booksRouter.get("/delete/:bookid", (req, res, next) => {
 //EDIT /books/edit
 booksRouter.get("/edit", (req, res, next) => {
   const {bookid} = req.query  
+  const userIsLoggedIn = Boolean(req.session.currentUser)
 
 
   Book.findOne({_id:bookid})
   .populate("owner")
   .then((oneBook)=>{
-
-    const props = { oneBook: oneBook };
+    
+    const props = { oneBook: oneBook , userIsLoggedIn };
+    console.log(" userIsLoggedIn", props.userIsLoggedIn)
   
     res.render("UpdateBook", props);
   })

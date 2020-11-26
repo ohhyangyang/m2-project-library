@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 
 function AddBook(props) {
   return (
-    <Layout title="Add Book" isLoggedIn={props.userIsLoggedIn}>
+    <Layout title="Add Book" isLoggedIn={props.userIsLoggedIn} username={props.username}>
       
       <form id="add-book-form" action="/books/add" method="POST" encType="multipart/form-data">
       <h2>Add a book</h2>
@@ -28,7 +28,7 @@ function AddBook(props) {
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Rating</label>
+          <label for="exampleInputEmail1">Rating (1~5)</label>
           <input
             type="number"
             name="rating"

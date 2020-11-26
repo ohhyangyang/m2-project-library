@@ -46,14 +46,14 @@ function Profile(props) {
       </div>
       <div id="profilebuttons container" class="row">
         <div class="col-xs-6 linkprofile">
-          <a href="/private/edit-profile" class="btn btn-info">
-            {!props.visitedUser.imageURL ? "Edit profile" : null}
-          </a>
+          
+            {!props.visitedUser.imageURL ? <a href="/private/edit-profile" class="btn btn-info">Edit profile</a> : null}
+          
         </div>
         <div class="col-xs-6 linkprofile">
-          <a href="/books/add" class="btn btn-info">
-            {!props.visitedUser.imageURL ? "Add book" : null}
-          </a>
+          
+            {!props.visitedUser.imageURL ? <a href="/books/add" class="btn btn-info">Add book</a> : null}
+          
         </div>
       </div>
       <div class="headlineprofile">

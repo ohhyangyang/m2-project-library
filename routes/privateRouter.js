@@ -260,7 +260,7 @@ privateRouter.get("/edit-profile", (req, res, next) => {
   const { username } = req.session.currentUser;
   User.findOne({ username: username }).then((foundUser) => {
 
-    const props = { foundUser: foundUser };
+    const props = { foundUser: foundUser , userIsLoggedIn, username};
     res.render("UpdateProfile", props);
   });
 });

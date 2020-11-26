@@ -19,7 +19,7 @@ function Layout(props) {
 
       <body>
         <nav id="layout-nav" className="navbar sticky-top navbar-expand-lg navbar-light" >
-          <a className="navbar-brand" href="/books/library">
+          <a className="navbar-brand" href={props.isLoggedIn ? `/books/library` : "/"}>
             <img className="xbook-logo" src="/images/XBook-logo-02.svg" />
           </a>
           <button
@@ -35,9 +35,8 @@ function Layout(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="/books/library">
-                Library
-              </a>
+              
+              {props.isLoggedIn ?<a className="nav-link" href="/books/library">Library</a> : null}
               <a className="nav-link" href={props.isLoggedIn ? `/private/profile/${props.username}` : "/auth/signup"}>
                 {props.isLoggedIn ? "Profile" : "Signup"}
                 {console.log("isLoggedIn",props.isLoggedIn)}
