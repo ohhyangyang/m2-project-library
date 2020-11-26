@@ -416,6 +416,10 @@ body {
 #horizontal-scroll .card-title:nth-child(1){
   margin-left:0px;
 }
+
+#horizontal-scroll .selected-category{
+  font-weight: 500;
+}
 /*------- books------- */
 #library-books{
   background-color: rgba(241,245,244,.4);
