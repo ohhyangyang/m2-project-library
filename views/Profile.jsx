@@ -27,7 +27,7 @@ function Profile(props) {
         </div>
         <div>
           {props.borrowedLibrary.length <= 1
-            ? <div><div className="number" >{props.borrowedLibrary.length} </div> book </div>
+            ? <div><div className="number" >{props.borrowedLibrary.length} </div> book borrowed</div>
             : <div><div className="number">{props.borrowedLibrary.length} </div> books borrowed</div>}
         </div>
       </div>
