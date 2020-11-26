@@ -127,7 +127,7 @@ function Profile(props) {
         </div>
       </div>
       <div class="headlineprofile">
-      {props.userLibrary ? "Book library" : null}</div>
+      {props.userLibrary.length >= 1 ? "Book library" : "You have not added any books. Upload books now"}</div>
       <div className="user-library container">
         {props.userLibrary.map((book, i) => {
           return (
