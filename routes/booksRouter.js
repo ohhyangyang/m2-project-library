@@ -39,13 +39,14 @@ booksRouter.get("/library", (req, res, next) => {
 //GET /books/library/category/:category
 booksRouter.get('/library/category/:category',(req,res,next)=>{
   const category = req.params.category;
+  const userIsLoggedIn = Boolean(req.session.currentUser)
 
   Book.find({category:category})
   .populate("owner")
   .then((booksFound)=>{
 
 
-    const props = {categoryBooks:booksFound}
+    const props = {categoryBooks:booksFound,userIsLoggedIn}
     console.log("props.categoryBooks",props.categoryBooks)
     res.render("Library",props);
   })
