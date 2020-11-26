@@ -246,6 +246,16 @@ body {
 .linkprofile {
   margin-left: 20px;
 }
+.request-info{
+  list-style-type:none;
+  width: 70vw;
+  text-align: center;
+  margin-left: 10px;
+}
+.request-info>a{
+  color: blue;
+  margin-left: 3px;
+}
 .book-info {
   display: flex;
   flex-direction: row;
@@ -268,9 +278,10 @@ body {
 }
 .headlineprofile{
   font-family: Roboto;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 500;
   margin-left: 20px;
+  color:#21384C;
 }
 #addbookicon{
   height: 50px;
@@ -307,7 +318,11 @@ body {
   box-shadow: 2px 2px #FFCECE;
   margin-left: 20px;
   margin-top: 10px;
-  width: 50vw
+  width: 50vw;
+  
+}
+#profilebuttons-container{
+  margin-bottom: 40px;
 }
 
 /*-----------------Layout--------------------------------------------*/
