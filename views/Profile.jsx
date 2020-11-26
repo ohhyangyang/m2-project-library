@@ -22,13 +22,13 @@ function Profile(props) {
         </div>
         <div>
         {props.userLibrary.length <= 1
-            ? <div><div className="number">{props.userLibrary.length}</div> book</div>
-            : <div><div className="number">{props.userLibrary.length}</div> books</div>}
+            ? <div><div className="number">{props.userLibrary.length}</div> Book</div>
+            : <div><div className="number">{props.userLibrary.length}</div> Books</div>}
         </div>
         <div>
           {props.borrowedLibrary.length <= 1
-            ? <div><div className="number" >{props.borrowedLibrary.length} </div> book </div>
-            : <div><div className="number">{props.borrowedLibrary.length} </div> books borrowed</div>}
+            ? <div><div className="number" >{props.borrowedLibrary.length} </div> Book borrowed</div>
+            : <div><div className="number">{props.borrowedLibrary.length} </div> Books borrowed</div>}
         </div>
       </div>
       <div id="profileInfo">
@@ -44,7 +44,7 @@ function Profile(props) {
             : props.session.description}
         </div>
       </div>
-      <div id="profilebuttons container" class="row">
+      <div id="profilebuttons-container" class="row">
         <div class="col-xs-6 linkprofile">
           
             {!props.visitedUser.imageURL ? <a href="/private/edit-profile" class="btn btn-info">Edit profile</a> : null}
@@ -52,7 +52,7 @@ function Profile(props) {
         </div>
         <div class="col-xs-6 linkprofile">
           
-            {!props.visitedUser.imageURL ? <a href="/books/add" class="btn btn-info">Add book</a> : null}
+            {!props.visitedUser.imageURL ? <a href="/books/add" class="btn btn-info ">Add book</a> : null}
           
         </div>
       </div>
@@ -65,7 +65,7 @@ function Profile(props) {
         {props.messagesUnseen
           ? props.messagesUnseen.map((message, i) => {
               return (
-                <li key={i}>
+                <li class="request-info" key={i}>
                   {message.content}
                   <a href={`/private/profile/message/${message._id}/${i}`}>
                     I got it
@@ -127,7 +127,7 @@ function Profile(props) {
         </div>
       </div>
       <div class="headlineprofile">
-      {props.userLibrary ? "Your books" : null}</div>
+      {props.userLibrary ? "Book library" : null}</div>
       <div className="user-library container">
         {props.userLibrary.map((book, i) => {
           return (
@@ -148,8 +148,9 @@ function Profile(props) {
         })}
       </div>
       <div class="headlineprofile">
-        {props.borrowedLibrary.length > 1 ? "Your borrowed books" : null}
+        {props.borrowedLibrary.length >=1 ? "Your borrowed books" : null}
       </div>
+  
       <div className="user-library container">
         {props.borrowedLibrary.map((book, i) => {
           return (

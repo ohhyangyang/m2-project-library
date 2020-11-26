@@ -89,6 +89,7 @@ function Layout(props) {
           integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
           crossOrigin="anonymous"
         ></script>
+        <script src="/javascripts/script.js"></script>
       </body>
     </html>
   );

@@ -19,7 +19,7 @@ function Library(props) {
             <li class="item">
               <div id="firstCard">
                 <a href="/books/library" class="card-title">
-                  all
+                  All
                 </a>
               </div>
             </li>
