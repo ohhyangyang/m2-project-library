@@ -247,6 +247,7 @@ a.splash {
   margin-top: 20px;
 }
 #layout-footer{
+  /* margin-top: 50px; */
   background-color: #21384C;
   width: 100vw;
 }
@@ -353,6 +354,7 @@ a.splash {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
+  padding-bottom: 50px;
 }
 #library-books .book{
   width: 40vw;

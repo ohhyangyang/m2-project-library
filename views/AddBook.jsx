@@ -28,7 +28,7 @@ function AddBook(props) {
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Rating</label>
+          <label for="exampleInputEmail1">Rating (1~5)</label>
           <input
             type="number"
             name="rating"

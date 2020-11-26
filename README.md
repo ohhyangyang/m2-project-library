@@ -12,23 +12,21 @@ Bookexchange: a platform that enables users to upload their books and borrow the
 
 500 - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 
-homepage - shows the user different books based on criterias (such as location) and different users (users that offer the most books); show some numbers as in amont of users already signed up and number of books available, how many books have been exchanged already 
+Homepage - shows the user different books based on criterias (such as location) and different users (users that offer the most books); show some numbers as in amont of users already signed up and number of books available, how many books have been exchanged already 
 
-signup - the page where the user can sign up to the book exchange platform 
+Signup - the page where the user can sign up to the book exchange platform 
 
-login - the page where the user can log in to his/her profile
+Login - the page where the user can log in to his/her profile
 
-profile page - shows the profile (username, photo) of the user with the books he/she is offering and the exchanged books + log out function 
+Profile page - shows the profile (username, photo) of the user with the books he/she is offering and the exchanged books + log out function 
 
-books - shows the "library" with the books (information displayed, reviews & co.) offered and already exchanged, filter options (categories), you can borrow the books there 
+Book Library - shows the "library" with the books (information displayed, reviews & co.) offered and already exchanged, filter options (categories), you can borrow the books there 
 
-users - shows users with the amount of books offered and borrowed 
+Add books - user can add additional books 
 
-add books - user can add additional books 
+Delele book
 
-edit & delele book
-
-edit user - user can change his/her profile and upload/remove/change books
+Edit user - user can change his/her profile and upload/remove/change books
 
 ## Server Routes (Back-end)
 
@@ -145,20 +143,22 @@ edit user - user can change his/her profile and upload/remove/change books
 
 ## Backlog
 
-- return the book option
+- Return the book option
 - Message/Chat option for users
-- Responsive 
+- Responsive CSS
+- Book comments and likes
 
-## Links
+## Trello
 
- Trello: https://trello.com/invite/b/ASaSELkh/eac8f4d97c46f8ea8a80268b09434ac4/m2-yang-juliane
+ [Trello](https://trello.com/invite/b/ASaSELkh/eac8f4d97c46f8ea8a80268b09434ac4/m2-yang-juliane)
 
 ## Git
 
-Repo: https://github.com/ohhyangyang/m2-project-library
+[Remote Repo]( https://github.com/ohhyangyang/m2-project-library)
 
-Deploy: https://x-book.herokuapp.com/
+[My APP Deploy]( https://x-book.herokuapp.com/)
 
 ## Slides
 
-Presentation: https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit#slide=id.gad4c381f73_0_7
+[Presentation]( https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit#slide=id.gad4c381f73_0_7)
+
