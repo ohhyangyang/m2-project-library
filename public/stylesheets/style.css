@@ -300,6 +300,16 @@ body {
   display: flex; 
   align-items: center;
 }
+
+.btn-info {
+  border: 1px #FFCECE solid;
+  background-color: #f5f1d1;
+  box-shadow: 2px 2px #FFCECE;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 50vw
+}
+
 /*-----------------Layout--------------------------------------------*/
 #layout-nav{
   background-color: #f5f1d1;
