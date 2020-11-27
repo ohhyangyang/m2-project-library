@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 
 function About(props) {
   return (
-    <Layout title="About">
+    <Layout title="About" isLoggedIn={props.userIsLoggedIn}>
       <div id="about-wrapper">
         <h2>About Us</h2>
         <div id="about-logos">

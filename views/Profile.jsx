@@ -127,8 +127,9 @@ function Profile(props) {
         </div>
       </div>
       <div class="headlineprofile">
-      {props.userLibrary.length >= 1 ? "Book library" : "You have not added any books. Upload books now"}</div>
+      {props.userLibrary.length >= 1 ? "Book library" : "Have not added any books."}</div>
       <div className="user-library container">
+      {console.log("other userLibrary view",props.userLibrary)}
         {props.userLibrary.map((book, i) => {
           return (
             <div key={i}>
@@ -136,12 +137,16 @@ function Profile(props) {
             <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
             <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>, <br/>{book.category}, <br/>Rating:{book.rating}/5</div>
             </div>
-              <div class="container delete-book"> 
+            
+            {!props.visitedUser.imageURL ?  //⚠️⚠️⚠️
+              (<div class="container delete-book"> 
               <a href={`/books/delete/${book._id}`}>
                 <img className="delete-icon" src="/images/recycle-bin.png" />
                 Remove book
               </a>             
-              </div>
+              </div>)
+              :null}
+           
               <hr></hr>
             </div>
           );
