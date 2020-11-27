@@ -92,7 +92,7 @@ booksRouter.get("/add", (req, res, next) => {
 // POST    /books/add
 booksRouter.post("/add", parser.single('bookcoverimage'), (req, res, next) => {
   const { title, author, category, rating, gift } = req.body;
-
+  console.log("category",category);
   const imageUrl = req.file.secure_url;
   // EX: title: 1984, author: George Orwell, category: fiction, gift: yes
   // If any fields are empty, display error message

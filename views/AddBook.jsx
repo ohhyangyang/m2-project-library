@@ -39,8 +39,8 @@ function AddBook(props) {
             aria-describedby="emailHelp"
           />
         </div>
-        <label for="exampleInputEmail1">Category</label>
-        <select class="custom-select">
+        <label  for="exampleInputEmail1">Category</label>
+        <select name="category" class="custom-select">
           <option selected>Open to select category</option>
           <option value="Fantasy">Fantasy</option>
           <option value="Adventure">Adventure</option>
