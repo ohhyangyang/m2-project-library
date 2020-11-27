@@ -47,13 +47,15 @@ booksRouter.get('/library/category/:category',(req,res,next)=>{
   .then((booksFound)=>{
 
 
-    const props = {categoryBooks:booksFound,userIsLoggedIn, username:session.username}
+    const props = {categoryBooks:booksFound,userIsLoggedIn, username:session.username,category}
     console.log("props.categoryBooks",props.categoryBooks)
     res.render("Library",props);
   })
 
   
 })
+
+
 
 //GET    /books/library/:bookId //BORROW
 booksRouter.get("/library/:bookid", (req, res, next) => {
@@ -81,6 +83,7 @@ booksRouter.get("/library/:bookid", (req, res, next) => {
     }
   })
 })
+
 
 // GET     /books/add
 booksRouter.get("/add", (req, res, next) => {
