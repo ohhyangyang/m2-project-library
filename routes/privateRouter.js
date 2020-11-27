@@ -65,7 +65,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                   user: req.params.username,
                   borrowedLibrary: borrowedLibrary,
                   username: session.username,
-                  visitedUser:{}
+                  visitedUser:null
                 };
 
                 
@@ -121,7 +121,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
               visitedUser:foundUser[0]
   
             };
-            console.log("other userLibrary route",userLibrary)
+      
             
             res.render("Profile", props);
           })

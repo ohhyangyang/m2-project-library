@@ -13,7 +13,7 @@ function Profile(props) {
           <img
             id="profilepicture"
             src={
-              props.visitedUser.imageURL
+              props.visitedUser
                 ? props.visitedUser.imageURL
                 : props.session.imageURL
             }
@@ -33,13 +33,14 @@ function Profile(props) {
       </div>
       <div id="profileInfo">
         <div>
-          {props.visitedUser.username
+          {props.visitedUser
             ? props.visitedUser.username
             : props.session.username}
         </div>
         <div>
           📚📚📚
-          {props.visitedUser.description
+          
+          {props.visitedUser
             ? props.visitedUser.description
             : props.session.description}
         </div>
@@ -47,12 +48,12 @@ function Profile(props) {
       <div id="profilebuttons-container" class="row">
         <div class="col-xs-6 linkprofile">
           
-            {!props.visitedUser.imageURL ? <a href="/private/edit-profile" class="btn btn-info">Edit profile</a> : null}
+            {!props.visitedUser ? <a href="/private/edit-profile" class="btn btn-info">Edit profile</a> : null}
           
         </div>
         <div class="col-xs-6 linkprofile">
           
-            {!props.visitedUser.imageURL ? <a href="/books/add" class="btn btn-info ">Add book</a> : null}
+            {!props.visitedUser ? <a href="/books/add" class="btn btn-info ">Add book</a> : null}
           
         </div>
       </div>
@@ -129,7 +130,7 @@ function Profile(props) {
       <div class="headlineprofile">
       {props.userLibrary.length >= 1 ? "Book library" : "Have not added any books."}</div>
       <div className="user-library container">
-      {console.log("other userLibrary view",props.userLibrary)}
+      
         {props.userLibrary.map((book, i) => {
           return (
             <div key={i}>
@@ -138,7 +139,7 @@ function Profile(props) {
             <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>, <br/>{book.category}, <br/>Rating:{book.rating}/5</div>
             </div>
             
-            {!props.visitedUser.imageURL ?  //⚠️⚠️⚠️
+            {!props.visitedUser ?  //⚠️⚠️⚠️
               (<div class="container delete-book"> 
               <a href={`/books/delete/${book._id}`}>
                 <img className="delete-icon" src="/images/recycle-bin.png" />
