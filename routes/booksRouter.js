@@ -39,6 +39,7 @@ booksRouter.get("/library", (req, res, next) => {
 //GET /books/library/category/:category
 booksRouter.get('/library/category/:category',(req,res,next)=>{
   const category = req.params.category;
+  const session = req.session.currentUser;
   const userIsLoggedIn = Boolean(req.session.currentUser)
 
   Book.find({category:category})
@@ -46,7 +47,7 @@ booksRouter.get('/library/category/:category',(req,res,next)=>{
   .then((booksFound)=>{
 
 
-    const props = {categoryBooks:booksFound,userIsLoggedIn}
+    const props = {categoryBooks:booksFound,userIsLoggedIn, username:session.username}
     console.log("props.categoryBooks",props.categoryBooks)
     res.render("Library",props);
   })
