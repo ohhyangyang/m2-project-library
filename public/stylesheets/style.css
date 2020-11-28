@@ -494,6 +494,7 @@ body {
   flex-wrap: wrap;
   align-items: flex-start;
   padding-bottom: 50px;
+  justify-content: center;
 }
 #library-books .book{
   width: 40vw;
