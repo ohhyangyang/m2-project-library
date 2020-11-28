@@ -1,7 +1,7 @@
 const { PromiseProvider } = require("mongoose");
 const React = require("react");
 const Layout = require("./Layout");
-function Profile(props) {
+function Profile(props) { 
   return (
     <Layout
       title="Profile"
@@ -90,7 +90,7 @@ function Profile(props) {
                   <div className="lend-book-question">Do you want to lend this book?</div>
                   <div class="book-info container">
                   <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
-                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+                  <div className="book-description">{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
                   </div>
                   <div class="container confirmationbox">
                     <form
@@ -136,13 +136,13 @@ function Profile(props) {
             <div key={i}>
             <div class="book-info container">
             <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
-            <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong>, <br/>{book.category}, <br/>Rating:{book.rating}/5</div>
+            <div className="book-description">{`"${book.title}"`} <br/>by <strong>{book.author}</strong>, <br/>{book.category}, <br/>Rating:{book.rating}/5</div>
             </div>
             
             {!props.visitedUser ?  //⚠️⚠️⚠️
               (<div class="container delete-book"> 
-              <a href={`/books/delete/${book._id}`}>
-                <img className="delete-icon" src="/images/recycle-bin.png" />
+              <a className="book-description" href={`/books/delete/${book._id}`}>
+                <img className="delete-icon " src="/images/recycle-bin.png" />
                 Remove book
               </a>             
               </div>)
@@ -163,7 +163,7 @@ function Profile(props) {
             <div key={i}>
             <div class="book-info container">
                   <div class="cover-small"><img src={book.imageURL} className="image-cover-small" /></div>
-                  <div>{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
+                  <div className="book-description">{`"${book.title}"`} <br/>by <strong>{book.author}</strong></div>
             </div>
               <hr></hr>
             </div>
