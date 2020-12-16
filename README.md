@@ -160,5 +160,5 @@ Edit user - user can change his/her profile and upload/remove/change books
 
 ## Slides
 
-[Presentation]( https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit#slide=id.gad4c381f73_0_7)
+[Presentation]( https://docs.google.com/presentation/d/185aydu5xmMaryGu4VVv83Mhnf-X5iDGsjmLf5X9Jjps/edit?usp=sharing)
 
