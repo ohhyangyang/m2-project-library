@@ -43,7 +43,8 @@ booksRouter.get('/library/category/:category',(req,res,next)=>{
 
   Book.find({category:category})
   .populate("owner")
-  .then((booksFound)=>{
+  .then((booksFound)=>{ 
+    console.log("booksFound", booksFound)
 
 
     const props = {categoryBooks:booksFound,userIsLoggedIn}
@@ -92,6 +93,7 @@ booksRouter.get("/add", (req, res, next) => {
 // POST    /books/add
 booksRouter.post("/add", parser.single('bookcoverimage'), (req, res, next) => {
   const { title, author, category, rating, gift } = req.body;
+  console.log("req.body", req.body)
 
   const imageUrl = req.file.secure_url;
   // EX: title: 1984, author: George Orwell, category: fiction, gift: yes

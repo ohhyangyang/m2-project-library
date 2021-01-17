@@ -260,7 +260,7 @@ function Library(props) {
                     <a
                       className="book-borrow"
                       href={
-                        Book.status == "available"
+                        Book.status == "available" 
                           ? `/books/library/${Book._id}`
                           : "javascript:;"
                       }
