@@ -48,7 +48,8 @@ function Layout(props) {
               </a>
 
               <a className="nav-link" href="/about">
-                About
+                {/* About */}
+                {props.isLoggedIn ?<a className="nav-link" href="/about">About</a> : null}
               </a>
             </div>
           </div>

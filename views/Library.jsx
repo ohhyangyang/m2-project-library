@@ -234,8 +234,10 @@ function Library(props) {
                     <a className="book-visit" href={`/private/profile/${Book.owner.username}`}>
                       {`Visit ${Book.owner.username}'s profile`}
                     </a>
-                    <a className="book-borrow" href={`/books/library/${Book._id}`}>
-                      BORROW
+                    <a className="book-borrow" href={Book.status == "available"
+                          ? `/books/library/${Book._id}`
+                          : "javascript:;"}>
+                      {Book.status == "available" ? "BORROW" : "TAKEN"}
                     </a>
                     
                   </div>

@@ -65,7 +65,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
                   user: req.params.username,
                   borrowedLibrary: borrowedLibrary,
                   username: session.username,
-                  visitedUser:{}
+                  visitedUser:null
                 };
 
                 
@@ -77,12 +77,15 @@ privateRouter.get("/profile/:username", (req, res, next) => {
   } else {
     Book
     .find({ status: "available" })
+    .populate("owner") //⚠️⚠️⚠️
     .then((availableBooks) => {
 
       let userLibrary = [];
 
       availableBooks.forEach((book, i) => {
-        
+        // console.log("I'm",req.params.username)
+        // console.log("I'm",book)
+        // console.log("BOOLEAN",book.owner.username == req.params.username)
         if (book.owner.username == req.params.username) {
           userLibrary.push(book);
         }
@@ -118,7 +121,7 @@ privateRouter.get("/profile/:username", (req, res, next) => {
               visitedUser:foundUser[0]
   
             };
-  
+      
             
             res.render("Profile", props);
           })
